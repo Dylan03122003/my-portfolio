@@ -8,12 +8,20 @@ interface Props {
 }
 
 const SkillItem = ({ name, photo, confidentLevel, className }: Props) => {
+  function getWidth() {
+    if (name === "Firebase") return "w-[50px] sm:w-[70px]";
+    if (name === "Express") return "w-[100px] sm:w-[140px]";
+    if (name === "C") return "w-[50px] sm:w-[90px]";
+
+    return "w-[60px] sm:w-[100px]";
+  }
+
   return (
     <div
-      className={`bg-card-light-mode dark:bg-card-dark-mode rounded-md p-4 shadow-custom ${className}`}
+      className={`flex flex-col justify-between bg-card-light-mode dark:bg-card-dark-mode rounded-md p-4 shadow-custom ${className}`}
     >
       <img
-        className="w-[60px] sm:w-[100px] mx-auto pointer-events-none"
+        className={`${getWidth()} mx-auto pointer-events-none`}
         src={photo}
         alt="skill-photo"
       />

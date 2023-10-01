@@ -14,7 +14,7 @@ const Slider = ({ skills }: Props) => {
           confidentLevel={skill.confidentLevel}
           name={skill.name}
           photo={skill.photo}
-          className="min-w-[170px] sm:min-w-[200px]"
+          className="min-w-[170px] sm:min-w-[200px] h-[180px]"
         />
       ))}
     </div>
