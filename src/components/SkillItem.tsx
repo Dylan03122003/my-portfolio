@@ -13,7 +13,7 @@ const SkillItem = ({ name, photo, confidentLevel, className }: Props) => {
       className={`bg-card-light-mode dark:bg-card-dark-mode rounded-md p-4 shadow-custom ${className}`}
     >
       <img
-        className="w-[100px] mx-auto pointer-events-none"
+        className="w-[60px] sm:w-[100px] mx-auto pointer-events-none"
         src={photo}
         alt="skill-photo"
       />

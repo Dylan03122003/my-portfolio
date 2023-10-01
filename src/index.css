@@ -5,3 +5,8 @@
 /* html {
   scroll-behavior: smooth;
 } */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar_none::-webkit-scrollbar {
+  display: none;
+}
