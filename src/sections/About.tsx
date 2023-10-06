@@ -15,10 +15,12 @@ const About = () => {
         <ImageProfile profileImage={Profile} size="medium" />
         <div className="flex flex-col lg:flex-row items-start justify-center gap-10 p-4 bg-white dark:bg-card-dark-mode rounded-md shadow-custom text-text-light-mode dark:text-text-dark-mode w-fit">
           <div className="text-justify flex-1 lg:flex-[0.6]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-            voluptate corrupti temporibus odio mollitia possimus natus dolorem
-            veritatis? Consequuntur porro quod ratione corporis eaque sit. Ipsam
-            consequatur repudiandae sapiente quidem.
+            I am a diligent third-year student currently enrolled at FPT
+            University. I have gained over 10 months of practical experience in
+            working with React, Typescript, Express, and MySQL. I am actively
+            looking for a challenging opportunity where I can apply my skills
+            and experience to make a meaningful contribution to your
+            organization.
           </div>
 
           <div className="w-full flex-none lg:flex-[0.4]">
