@@ -97,7 +97,8 @@ const youtubeKTVProject = {
   technologies: [TECHNOLOGIES.REACT, TECHNOLOGIES.TYPESCRIPT, TECHNOLOGIES.MUI],
   role: ROLE.FRONT_END,
   githubLink: "",
-  websiteLink: "",
+  websiteLink:
+    "https://chrome.google.com/webstore/detail/myyoutubekaraoke/aoidbbmpdjgjhjmkphcgpblmlglinokn?utm_source=ext_sidebar&hl=en-US",
   youtubeLink: "https://youtu.be/vW2HWHYd_jg?si=pT6o8So85yfWe8IR",
   description: [""],
 };
