@@ -13,7 +13,7 @@ const Projects = () => {
   return (
     <section
       id={`${SECTION_ID.PROJECTS}`}
-      className="py-32 px-5 md:px-10 lg:px-36 bg-primary-light-mode dark:bg-primary-dark-mode"
+      className="py-32 px-5 bg-primary-light-mode dark:bg-primary-dark-mode"
     >
       <h2 className="mb-16 text-center text-3xl text-title-light-mode dark:text-white font-bold">
         Projects
@@ -37,9 +37,9 @@ const Projects = () => {
         ))}
       </div>
 
-      <div className="flex items-start justify-center gap-4">
+      <div className="flex  justify-center flex-wrap gap-4">
         {filteredProjects.map((p, i) => (
-          <ProjectItem project={p} key={i} />
+          <ProjectItem project={p} key={i} currentTab={currentTab} />
         ))}
       </div>
     </section>

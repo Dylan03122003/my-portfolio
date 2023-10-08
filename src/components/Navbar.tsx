@@ -27,7 +27,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed z-10 top-0 sm:top-5 left-[50%] -translate-x-[50%] w-full sm:w-fit bg-card-light-mode dark:bg-card-dark-mode rounded-none sm:rounded-full  shadow-custom">
+    <nav className="fixed z-30 top-0 sm:top-5 left-[50%] -translate-x-[50%] w-full sm:w-fit bg-card-light-mode dark:bg-card-dark-mode rounded-none sm:rounded-full  shadow-custom">
       <ul className=" flex items-center justify-center flex-wrap sm:flex-nowrap py-4 px-8 gap-2 sm:gap-10 font-medium text-[#5e5c7f] dark:text-[#CBD5E1] ">
         <li
           className={`${

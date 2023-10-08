@@ -9,11 +9,11 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="h-screen bg-primary-light-mode dark:bg-primary-dark-mode flex flex-col items-center justify-start"
+      className="h-screen flex flex-col items-center justify-start bg-primary-light-mode dark:bg-primary-dark-mode "
     >
       <ImageProfile profileImage={Profile} mt="mt-60" size="small" />
 
-      <h2 className="text-title-light-mode dark:text-[#CBD5E1] text-2xl sm:text-3xl text-center w-fit sm:w-[630px] mt-5">
+      <h2 className="px-4 text-2xl sm:text-3xl text-center w-fit sm:w-[630px] mt-5 text-title-light-mode dark:text-[#CBD5E1] ">
         <span className="font-bold dark:text-white">Hello, I'm Quoc Duong</span>
         , a passionate
         <span className="font-bold dark:text-white">
