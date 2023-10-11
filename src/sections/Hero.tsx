@@ -4,7 +4,9 @@ import { LiaLongArrowAltRightSolid } from "react-icons/lia";
 import ImageProfile from "../components/ImageProfile";
 import { FACEBOOK_LINK, GITHUB_LINK } from "../data/social_media";
 import { SECTION_ID } from "../utils/section_ids";
+import cv from "./../assets/CV_Cao Đặng Quốc Dương.pdf";
 import Profile from "./../assets/profile_cleared.jpg";
+
 const Hero = () => {
   return (
     <section
@@ -35,10 +37,16 @@ const Hero = () => {
           <LiaLongArrowAltRightSolid />
         </a>
 
-        <button className="flex items-center justify-center gap-2 bg-white dark:bg-[#1E293B] px-6 py-2 text-primary-dark-mode dark:text-white rounded-full font-semibold shadow-custom">
+        <a
+          href={cv}
+          download="CV_Cao Đặng Quốc Dương"
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center justify-center gap-2 bg-white dark:bg-[#1E293B] px-6 py-2 text-primary-dark-mode dark:text-white rounded-full font-semibold shadow-custom"
+        >
           Download CV
           <HiDownload />
-        </button>
+        </a>
 
         <a
           target="_blank"

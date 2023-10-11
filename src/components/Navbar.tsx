@@ -61,14 +61,14 @@ const Navbar = () => {
         >
           <a href={`#${SECTION_ID.SKILLS}`}>Skills</a>
         </li>
-        <li
+        {/* <li
           className={`${
             currentSection === SECTION_ID.CONTACT &&
             "bg-slate-100 dark:bg-slate-600"
           } rounded-full px-3 py-1`}
         >
           <a href={`#${SECTION_ID.CONTACT}`}>Contact</a>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

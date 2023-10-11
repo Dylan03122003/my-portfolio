@@ -55,6 +55,9 @@ const ProjectItem = ({ project, currentTab }: Props) => {
               <h2 className="font-medium text-2xl text-title-light-mode dark:text-text-dark-mode">
                 Video demo
               </h2>
+              <p className="font-medium text-xl text-red-400">
+                I'll update video demo soon
+              </p>
               <a
                 className="text-xl text-blue-600 dark:text-blue-400"
                 href="https://youtu.be/pnP3UQQLiaw?si=Pa4lccEnXyL5I0MI"
