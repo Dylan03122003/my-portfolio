@@ -1,5 +1,6 @@
 import SkillItem from "../components/SkillItem";
 import Slider from "../components/Slider";
+import { useAppContext } from "../hooks/useAppContext";
 import { SECTION_ID } from "../utils/section_ids";
 import {
   backendSkills,
@@ -8,13 +9,14 @@ import {
 } from "./../data/skills";
 
 const Skills = () => {
+  const { getText } = useAppContext();
   return (
     <section
       id={`${SECTION_ID.SKILLS}`}
       className="py-32 px-5 md:px-10 lg:px-36 bg-primary-light-mode dark:bg-primary-dark-mode "
     >
       <h2 className="mb-16 sm:mb-32 text-center text-3xl text-title-light-mode dark:text-white font-bold ">
-        Skills
+        {getText("Skills")}
       </h2>
       <div>
         <h3 className="mx-auto lg:mx-0 w-fit mb-5 text-title-light-mode dark:text-white px-3 py-1 bg-card-light-mode dark:bg-card-dark-mode shadow-custom rounded-full">

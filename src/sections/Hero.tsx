@@ -3,11 +3,14 @@ import { HiDownload } from "react-icons/hi";
 import { LiaLongArrowAltRightSolid } from "react-icons/lia";
 import ImageProfile from "../components/ImageProfile";
 import { FACEBOOK_LINK, GITHUB_LINK } from "../data/social_media";
+import { useAppContext } from "../hooks/useAppContext";
 import { SECTION_ID } from "../utils/section_ids";
 import cv from "./../assets/CV_Cao Đặng Quốc Dương.pdf";
 import Profile from "./../assets/profile_cleared.jpg";
 
 const Hero = () => {
+  const { getText } = useAppContext();
+
   return (
     <section
       id="home"
@@ -33,7 +36,7 @@ const Hero = () => {
           href={`#${SECTION_ID.CONTACT}`}
           className="flex items-center justify-center gap-2 bg-button-light-mode dark:bg-button-dark-mode px-6 py-2 text-white dark:text-primary-dark-mode rounded-full font-semibold"
         >
-          Contact me here
+          {getText("Contact me here")}
           <LiaLongArrowAltRightSolid />
         </a>
 
@@ -44,7 +47,7 @@ const Hero = () => {
           rel="noreferrer"
           className="flex items-center justify-center gap-2 bg-white dark:bg-[#1E293B] px-6 py-2 text-primary-dark-mode dark:text-white rounded-full font-semibold shadow-custom"
         >
-          Download CV
+          {getText("Download CV")}
           <HiDownload />
         </a>
 

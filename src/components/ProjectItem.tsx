@@ -6,6 +6,7 @@ import {
   MdKeyboardDoubleArrowRight,
 } from "react-icons/md";
 import { Project, TAB } from "../data/projects";
+import { useAppContext } from "../hooks/useAppContext";
 import Modal from "./Modal";
 interface Props {
   project: Project;
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const ProjectItem = ({ project, currentTab }: Props) => {
+  const { getText } = useAppContext();
   const tagContainer = useRef<HTMLDivElement | null>(null);
   const [isOverflowing, setIsOverflowing] = useState<boolean>(false);
   const [isAtEnd, setIsAtEnd] = useState(false);
@@ -88,7 +90,7 @@ const ProjectItem = ({ project, currentTab }: Props) => {
       </AnimatePresence>
       <div className="w-[310px] lg:w-[450px] flex flex-col p-4 shadow-custom rounded-md bg-[#F8FAFC] dark:bg-card-dark-mode">
         <h2 className="flex-grow font-medium text-2xl text-center mb-4 text-title-light-mode dark:text-text-dark-mode">
-          {project.title}
+          {getText(project.title)}
         </h2>
 
         <h3 className=" mx-auto w-fit mb-4 italic border-b-[1px] border-solid border-gray-400 dark:border-white   text-text-light-mode dark:text-text-dark-mode">
@@ -109,7 +111,7 @@ const ProjectItem = ({ project, currentTab }: Props) => {
           >
             {project.technologies.map((t) => (
               <div
-                className="px-4 py-1 font-medium bg-[#E4F1FF] dark:bg-[#2E4374] text-title-light-mode dark:text-text-dark-mode rounded-full"
+                className="px-4 py-1 font-medium bg-[#E4F1FF] dark:bg-[#2E4374] text-blue-500 dark:text-text-dark-mode rounded-full"
                 key={t}
               >
                 {t}

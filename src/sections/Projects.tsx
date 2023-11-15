@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import ProjectItem from "../components/ProjectItem";
 import { TAB, projects, tabs } from "../data/projects";
+import { useAppContext } from "../hooks/useAppContext";
 import { SECTION_ID } from "../utils/section_ids";
 const Projects = () => {
+  const { getText } = useAppContext();
   const [currentTab, setCurrentTab] = useState(TAB.REACT);
 
   const filteredProjects = projects.filter((project) =>
@@ -16,7 +18,7 @@ const Projects = () => {
       className="py-32 px-5 bg-primary-light-mode dark:bg-primary-dark-mode"
     >
       <h2 className="mb-16 text-center text-3xl text-title-light-mode dark:text-white font-bold">
-        Projects
+        {getText("Projects")}
       </h2>
 
       <div className="flex items-center justify-center gap-4 mb-4">
