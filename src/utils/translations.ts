@@ -32,6 +32,26 @@ const translations: Translations = {
     en: "Skills",
     vn: "Kỹ năng",
   },
+  Contact: {
+    en: "Contact",
+    vn: "Liên hệ",
+  },
+  Name: {
+    en: "Name",
+    vn: "Tên",
+  },
+  Message: {
+    en: "Message",
+    vn: "Tin nhắn",
+  },
+  Send: {
+    en: "Send",
+    vn: "Gửi",
+  },
+  "Sending...": {
+    en: "Sending...",
+    vn: "Đang gửi...",
+  },
   "I am a diligent third-year student currently enrolled at FPT University. I have gained over 10 months of practical experience in working with React, Typescript, Express, and MySQL. I am actively looking for a challenging opportunity where I can apply my skillsand experience to make a meaningful contribution to your organization.":
     {
       en: "I am a diligent third-year student currently enrolled at FPT University. I have gained over 10 months of practical experience in working with React, Typescript, Express, and MySQL. I am actively looking for a challenging opportunity where I can apply my skillsand experience to make a meaningful contribution to your organization.",

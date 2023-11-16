@@ -55,11 +55,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed z-30 top-0 sm:top-5 left-[50%] -translate-x-[50%] w-full sm:w-[500px] bg-card-light-mode dark:bg-card-dark-mode rounded-none sm:rounded-full shadow-custom ${
-        scrollDirection === "down" ? "hidden" : "block"
+      className={`fixed z-30 top-0 md:top-5 left-[50%] -translate-x-[50%] w-full md:w-[650px] bg-card-light-mode dark:bg-card-dark-mode rounded-none md:rounded-full shadow-custom transition-opacity delay-200 ${
+        scrollDirection === "down" ? "opacity-0" : "opacity-100"
       }`}
     >
-      <ul className=" flex items-center justify-center flex-wrap sm:flex-nowrap py-4 px-8 gap-2 sm:gap-10 font-medium text-[#5e5c7f] dark:text-[#CBD5E1] ">
+      <ul className=" flex items-center justify-center flex-wrap md:flex-nowrap py-4 px-8 gap-2 md:gap-10 font-medium text-[#5e5c7f] dark:text-[#CBD5E1] ">
         <li
           className={`${
             currentSection === SECTION_ID.HOME &&
@@ -92,14 +92,14 @@ const Navbar = () => {
         >
           <a href={`#${SECTION_ID.SKILLS}`}>{getText("Skills")}</a>
         </li>
-        {/* <li
+        <li
           className={`${
             currentSection === SECTION_ID.CONTACT &&
             "bg-slate-100 dark:bg-slate-600"
           } rounded-full px-3 py-1`}
         >
-          <a href={`#${SECTION_ID.CONTACT}`}>Contact</a>
-        </li> */}
+          <a href={`#${SECTION_ID.CONTACT}`}>{getText("Contact")}</a>
+        </li>
       </ul>
     </nav>
   );

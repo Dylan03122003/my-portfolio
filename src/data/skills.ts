@@ -8,6 +8,7 @@ import FireBaseLogo from "./../assets/img/firebase_logo.png";
 import HtmlIcon from "./../assets/img/html_icon.png";
 import JavaLogo from "./../assets/img/java_language_logo.png";
 import JavascriptIcon from "./../assets/img/javascript_icon.png";
+import JQueryLogo from "./../assets/img/jquery_logo.png";
 import MongoDBLogo from "./../assets/img/mongodb_logo.png";
 import MongooseLogo from "./../assets/img/mongoose_logo.jpg";
 import MySQLLogo from "./../assets/img/mysql_logo.png";
@@ -63,12 +64,18 @@ export const frontendSkills = [
   },
   {
     id: 7,
+    name: "JQuery",
+    photo: JQueryLogo,
+    confidentLevel: 80,
+  },
+  {
+    id: 8,
     name: "HTML",
     photo: HtmlIcon,
     confidentLevel: 90,
   },
   {
-    id: 8,
+    id: 9,
     name: "CSS",
     photo: CssIcon,
     confidentLevel: 85,
