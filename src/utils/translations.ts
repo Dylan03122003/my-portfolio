@@ -61,6 +61,10 @@ const translations: Translations = {
     en: "Youtube Karaoke TV Google Extension",
     vn: "Youtube Karaoke TV Google Extension",
   },
+  "Discussion Nest Website": {
+    en: "Discussion Nest Website",
+    vn: "Website bàn luận về công nghệ",
+  },
 };
 
 export const getText = (text: string, language: Language) => {

@@ -1,6 +1,8 @@
 import BookstoreImage from "./../../assets/img/website/bookstore_website.jpg";
+import DiscussionNestImage from "./../../assets/img/website/discussion_nest.jpg";
 import FoodOrderLandingPageImage from "./../../assets/img/website/food_order_landingpage.jpg";
 import NoteTakingImage from "./../../assets/img/website/note_taking_website.jpg";
+import RecipeReactImage from "./../../assets/img/website/recipe_react.jpg";
 import RecipeWebsiteImage from "./../../assets/img/website/recipe_website.jpg";
 import WorkoutTrackerProject from "./../../assets/img/website/workout_tracker_website.jpg";
 import YoutubeKTVImage from "./../../assets/img/website/youtube_ktv.jpg";
@@ -12,6 +14,7 @@ import YoutubeKTVImage from "./../../assets/img/website/youtube_ktv.jpg";
 export enum TAB {
   REACT = "React",
   NEXTJS = "Next.js",
+  JAVA = "Java",
   VANILLA_JAVASCRIPT = "Vanilla JavaScript",
   ALL = "All",
 }
@@ -31,6 +34,11 @@ export enum TECHNOLOGIES {
   CSS = "CSS",
   SASS = "Sass",
   JAVASCRIPT = "JavaScript",
+  JAVA = "Java",
+  SERVLET = "Servlet",
+  JDBC = "JDBC",
+  JSP = "JSP",
+  JQUERY = "JQuery",
 }
 
 export enum ROLE {
@@ -39,7 +47,7 @@ export enum ROLE {
   FULL_STACK = "Full-stack developer",
 }
 
-export const tabs = [TAB.REACT, TAB.VANILLA_JAVASCRIPT, TAB.ALL];
+export const tabs = [TAB.REACT, TAB.VANILLA_JAVASCRIPT, TAB.JAVA, TAB.ALL];
 
 export interface Project {
   tabs: TAB[];
@@ -139,6 +147,41 @@ const foodOrderLandingPageProject = {
   description: [""],
 };
 
+const discussionNest = {
+  tabs: [TAB.JAVA, TAB.ALL],
+  title: "Discussion Nest Website",
+  image: DiscussionNestImage,
+  technologies: [
+    TECHNOLOGIES.JAVA,
+    TECHNOLOGIES.SERVLET,
+    TECHNOLOGIES.JDBC,
+    TECHNOLOGIES.JSP,
+    TECHNOLOGIES.TAILWIND,
+    TECHNOLOGIES.JQUERY,
+  ],
+  role: ROLE.FULL_STACK,
+  githubLink: "",
+  websiteLink: "",
+  youtubeLink: "https://youtu.be/vW2HWHYd_jg?si=pT6o8So85yfWe8IR",
+  description: [""],
+};
+
+const recipeV2 = {
+  tabs: [TAB.VANILLA_JAVASCRIPT, TAB.ALL],
+  title: "Recipe Website",
+  image: RecipeReactImage,
+  technologies: [
+    TECHNOLOGIES.REACT,
+    TECHNOLOGIES.TAILWIND,
+    TECHNOLOGIES.JAVASCRIPT,
+  ],
+  role: ROLE.FRONT_END,
+  githubLink: "",
+  websiteLink: "",
+  youtubeLink: "https://youtu.be/vW2HWHYd_jg?si=pT6o8So85yfWe8IR",
+  description: [""],
+};
+
 export const projects: Project[] = [
   bookstoreProject,
   youtubeKTVProject,
@@ -146,4 +189,6 @@ export const projects: Project[] = [
   recipeWebsite,
   foodOrderLandingPageProject,
   workoutTrackerProject,
+  discussionNest,
+  recipeV2,
 ];

@@ -21,7 +21,7 @@ const Projects = () => {
         {getText("Projects")}
       </h2>
 
-      <div className="flex items-center justify-center gap-4 mb-4">
+      <div className="flex items-center justify-center flex-wrap gap-4 mb-4">
         {tabs.map((tab) => (
           <motion.button
             whileTap={{ scale: 1.05 }}
