@@ -6,11 +6,11 @@ interface Props {
   onClose: () => void;
 }
 
-const ProjectDetail = ({ project }: Props) => {
+const ProjectDetail = ({ project, onClose }: Props) => {
   const { getText } = useAppContext();
 
   return (
-    <div className="relative">
+    <div className="">
       <div className=" p-4 h-[250px] flex items-center justify-start gap-2 overflow-x-scroll">
         {project.images.map((img, index) => (
           <img key={index} className="h-full" src={img} />
@@ -52,12 +52,14 @@ const ProjectDetail = ({ project }: Props) => {
         </div>
       </div>
 
-      {/* <button
-        onClick={onClose}
-        className="absolute top-2 right-2 px-4 py-1 rounded-md font-medium bg-red-100 text-red-500"
-      >
-        Close
-      </button> */}
+      <div className="sm:hidden flex items-center justify-end p-2">
+        <button
+          onClick={onClose}
+          className=" px-4 py-1 rounded-md font-medium bg-gray-200 dark:bg-gray-100 text-gray-600"
+        >
+          Close
+        </button>
+      </div>
     </div>
   );
 };
