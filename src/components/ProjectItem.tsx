@@ -1,6 +1,8 @@
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { BiDetail } from "react-icons/bi";
 import { BsEye, BsGithub, BsYoutube } from "react-icons/bs";
+
 import {
   MdKeyboardDoubleArrowLeft,
   MdKeyboardDoubleArrowRight,
@@ -8,6 +10,7 @@ import {
 import { Project, TAB } from "../data/projects";
 import { useAppContext } from "../hooks/useAppContext";
 import Modal from "./Modal";
+import ProjectDetail from "./ProjectDetail";
 interface Props {
   project: Project;
   currentTab: TAB;
@@ -19,6 +22,8 @@ const ProjectItem = ({ project, currentTab }: Props) => {
   const [isOverflowing, setIsOverflowing] = useState<boolean>(false);
   const [isAtEnd, setIsAtEnd] = useState(false);
   const [open, setOpen] = useState(false);
+  // const [openProjectDetail, setOpenProjectDetail] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const handleScroll = (scrollOffset: number) => {
     if (tagContainer.current) {
@@ -80,11 +85,23 @@ const ProjectItem = ({ project, currentTab }: Props) => {
             <div className="flex flex-col items-end justify-center p-4">
               <button
                 onClick={() => setOpen(false)}
-                className="px-4 py-1 rounded-md font-medium bg-red-100 text-red-500"
+                className="px-4 py-1 rounded-md font-medium bg-gray-200 dark:bg-gray-100 text-gray-600"
               >
                 Close
               </button>
             </div>
+          </Modal>
+        )}
+
+        {selectedProject && (
+          <Modal
+            className="w-[90%] md:w-[80%] xl:w-[1200px] h-[800px] bg-card-light-mode dark:bg-card-dark-mode shadow-custom overflow-y-scroll"
+            onClose={() => setSelectedProject(null)}
+          >
+            <ProjectDetail
+              project={project}
+              onClose={() => setSelectedProject(null)}
+            />
           </Modal>
         )}
       </AnimatePresence>
@@ -158,6 +175,9 @@ const ProjectItem = ({ project, currentTab }: Props) => {
               <BsYoutube className="text-[#FF0000] relative z-10 w-10 h-10" />
             </a>
           )}
+          <button onClick={() => setSelectedProject(project)}>
+            <BiDetail className="w-10 h-10 text-slate-500 dark:text-slate-300" />
+          </button>
         </div>
       </div>
     </>
