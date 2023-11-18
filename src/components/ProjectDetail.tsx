@@ -13,7 +13,7 @@ const ProjectDetail = ({ project, onClose }: Props) => {
     <div className="">
       <div className=" p-4 h-[250px] flex items-center justify-start gap-2 overflow-x-scroll">
         {project.images.map((img, index) => (
-          <img key={index} className="h-full" src={img} />
+          <img key={index} className="h-full w-full object-contain" src={img} />
         ))}
       </div>
 
