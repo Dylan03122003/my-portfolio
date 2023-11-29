@@ -8,6 +8,11 @@ import Bookstore7 from "./../../assets/img/website/bookstore_7.jpg";
 import Bookstore8 from "./../../assets/img/website/bookstore_8.jpg";
 import BookstoreImage from "./../../assets/img/website/bookstore_website.jpg";
 import DiscussionNestImage from "./../../assets/img/website/discussion_nest.jpg";
+import FoodOrder1 from "./../../assets/img/website/food-order-1.jpg";
+import FoodOrder2 from "./../../assets/img/website/food-order-2.jpg";
+import FoodOrder3 from "./../../assets/img/website/food-order-3.jpg";
+import FoodOrder4 from "./../../assets/img/website/food-order-4.jpg";
+import FoodOrder5 from "./../../assets/img/website/food-order-5.jpg";
 import FoodOrderLandingPageImage from "./../../assets/img/website/food_order_landingpage.jpg";
 import Karaoke1 from "./../../assets/img/website/karaoke1.jpg";
 import Karaoke2 from "./../../assets/img/website/karaoke2.jpg";
@@ -16,6 +21,13 @@ import NoteApp1 from "./../../assets/img/website/note_app_1.jpg";
 import NoteApp2 from "./../../assets/img/website/note_app_2.jpg";
 import NoteApp3 from "./../../assets/img/website/note_app_3.jpg";
 import NoteTakingImage from "./../../assets/img/website/note_taking_website.jpg";
+import RecipeReact1 from "./../../assets/img/website/recipe-react-1.jpg";
+import RecipeReact2 from "./../../assets/img/website/recipe-react-2.jpg";
+import RecipeReact3 from "./../../assets/img/website/recipe-react-3.jpg";
+import RecipeReact4 from "./../../assets/img/website/recipe-react-4.jpg";
+import RecipeReact5 from "./../../assets/img/website/recipe-react-5.jpg";
+import RecipeReact6 from "./../../assets/img/website/recipe-react-6.jpg";
+import RecipeReact7 from "./../../assets/img/website/recipe-react-7.jpg";
 import RecipeReactImage from "./../../assets/img/website/recipe_react.jpg";
 import RecipeV1_1 from "./../../assets/img/website/recipe_v1_1.jpg";
 import RecipeWebsiteImage from "./../../assets/img/website/recipe_website.jpg";
@@ -196,7 +208,14 @@ const foodOrderLandingPageProject = {
     "The user interface is developed to be easy to use and intuitive, while also being highly responsive",
     "Included information on features, meal options, pricing, and the ordering process",
   ],
-  images: [FoodOrderLandingPageImage],
+  images: [
+    FoodOrderLandingPageImage,
+    FoodOrder1,
+    FoodOrder2,
+    FoodOrder3,
+    FoodOrder4,
+    FoodOrder5,
+  ],
 };
 
 const discussionNest = {
@@ -235,8 +254,20 @@ const recipeV2 = {
   githubLink: "https://github.com/Dylan03122003/recipe-website-v2",
   websiteLink: "",
   youtubeLink: "https://youtu.be/vW2HWHYd_jg?si=pT6o8So85yfWe8IR",
-  description: ["Modern UI/UX design with React and Tailwindcss"],
-  images: [RecipeReactImage],
+  description: [
+    "Modern UI/UX design with React and Tailwindcss.",
+    "Integrated Spoonacular API to fetch a variety of recipes.",
+  ],
+  images: [
+    RecipeReactImage,
+    RecipeReact1,
+    RecipeReact2,
+    RecipeReact3,
+    RecipeReact4,
+    RecipeReact5,
+    RecipeReact6,
+    RecipeReact7,
+  ],
 };
 
 export const projects: Project[] = [
