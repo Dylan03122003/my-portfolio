@@ -14,3 +14,19 @@
 html {
   scroll-behavior: smooth;
 }
+
+.custom_scrollbar::-webkit-scrollbar {
+  width: 0.7vw;
+}
+
+.custom_scrollbar::-webkit-scrollbar-thumb {
+  background-color: #d3d1cb;
+}
+
+/* .custom_scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+} */
+
+.custom_scrollbar::-webkit-scrollbar-track {
+  background-color: #edece9;
+}

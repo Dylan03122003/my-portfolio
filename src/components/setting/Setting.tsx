@@ -15,12 +15,13 @@ export default function Setting() {
   useOutsideClick(settingsRef, () => {
     setOpenSettings(false);
   });
+
   return (
     <div className="h-fit flex items-center justify-start gap-4 fixed bottom-5 lg:top-5 lg:right-10 right-5">
       <button
         type="button"
         onClick={() => {
-          setOpenSettings((prevOne) => !prevOne);
+          setOpenSettings(true);
         }}
       >
         <IoSettingsOutline className="w-7 h-7 text-title-light-mode dark:text-white cursor-pointer" />
@@ -31,10 +32,10 @@ export default function Setting() {
             <Overlay onClose={() => setOpenSettings(false)} />
             <div
               ref={settingsRef}
-              className="z-10 absolute bottom-5 sm:top-5 right-7 w-[300px] h-fit bg-card-light-mode dark:bg-card-dark-mode rounded-md shadow-custom"
+              className="z-10 pb-1 absolute bottom-5 sm:top-5 right-7 w-[300px] h-fit bg-card-light-mode dark:bg-card-dark-mode rounded-md shadow-custom"
             >
               {!settingType && (
-                <div className="flex items-center justify-center p-2 border-b-[1px] border-solid border-slate-200 dark:border-slate-700">
+                <div className="mb-1 flex items-center justify-center p-3 border-b-[1px] border-solid border-slate-200 dark:border-slate-700">
                   <h2 className="text-lg text-title-light-mode dark:text-white">
                     Settings
                   </h2>

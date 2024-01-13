@@ -63,7 +63,7 @@ const ColorMode = ({ settingType, onClick, onBack }: Props) => {
               setColorMode("light");
               onBack();
             }}
-            className="w-full flex items-center gap-4 p-2 hover:bg-slate-100 hover:dark:bg-slate-700 rounded-b-md"
+            className="w-full flex items-center gap-4 p-2 hover:bg-slate-100 hover:dark:bg-slate-700 "
           >
             <MdDone
               className={`${

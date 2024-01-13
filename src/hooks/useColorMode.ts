@@ -4,17 +4,16 @@ import { useLocalStorage } from "./useLocalStorage";
 function useColorMode() {
   const [colorMode, setColorMode] = useLocalStorage<string>(
     "color-mode-portfolio",
-    "light"
+    localStorage.getItem("color-mode-portfolio") || "light"
   );
 
   useEffect(() => {
-    const className = "dark";
     const bodyClasses = window.document.body.classList;
 
     if (colorMode === "dark") {
-      bodyClasses.add(className);
+      bodyClasses.add("dark");
     } else {
-      bodyClasses.remove(className);
+      bodyClasses.remove("dark");
     }
   }, [colorMode]);
 

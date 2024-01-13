@@ -1,11 +1,15 @@
 import { useReducer } from "react";
 import AppContext, { Language } from "../context/appContext";
+import useColorMode from "../hooks/useColorMode";
 import { getText } from "../utils/translations";
 import { appReducer } from "./appReducer";
 
 const AppProvider = ({ children }: { children: React.ReactNode }) => {
+  const [colorMode, setColorMode] = useColorMode();
+
   const [state, dispatch] = useReducer(appReducer, {
     currentLanguage: Language.EN,
+    currentColorMode: colorMode,
   });
 
   return (
@@ -14,6 +18,7 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
         state,
         dispatch,
         getText: (text: string) => getText(text, state.currentLanguage),
+        setColorMode,
       }}
     >
       {children}
