@@ -1,6 +1,6 @@
-import ColorMode from "./components/ColorMode";
-import LanguageChange from "./components/LanguageChange";
 import Navbar from "./components/Navbar";
+
+import Setting from "./components/setting/Setting";
 import About from "./sections/About";
 import Contact from "./sections/Contact";
 import Hero from "./sections/Hero";
@@ -11,10 +11,8 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="h-fit flex items-center justify-start gap-4 fixed bottom-5 lg:top-5 lg:right-10 right-5">
-        <LanguageChange />
-        <ColorMode />
-      </div>
+      <Setting />
+
       <main>
         <Hero />
         <About />

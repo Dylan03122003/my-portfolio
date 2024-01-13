@@ -14,6 +14,7 @@ import MongooseLogo from "./../assets/img/mongoose_logo.jpg";
 import MySQLLogo from "./../assets/img/mysql_logo.png";
 import NodeJsLogo from "./../assets/img/nodejs_logo.png";
 import PostgreLogo from "./../assets/img/postgre_logo.png";
+import PrismaImg from "./../assets/img/prisma.png";
 import ReactIcon from "./../assets/img/react_icon.png";
 import TailwindIcon from "./../assets/img/tailwind_icon.png";
 import TypescriptIcon from "./../assets/img/typescript_icon.png";
@@ -121,6 +122,12 @@ export const backendSkills = [
   },
   {
     id: 7,
+    name: "Prisma",
+    photo: PrismaImg,
+    confidentLevel: 75,
+  },
+  {
+    id: 8,
     name: "Firebase",
     photo: FireBaseLogo,
     confidentLevel: 75,

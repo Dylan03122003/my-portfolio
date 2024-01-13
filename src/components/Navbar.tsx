@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useAppContext } from "../hooks/useAppContext";
 import { SECTION_ID } from "../utils/section_ids";
+import Scroller from "./Scroller";
 
 const Navbar = () => {
-  const { getText } = useAppContext();
   const [currentSection, setCurrentSection] = useState<string>(SECTION_ID.HOME);
   const [scrollDirection, setScrollDirection] = useState<
     "up" | "down" | "initial"
@@ -60,46 +59,31 @@ const Navbar = () => {
       }`}
     >
       <ul className=" flex items-center justify-center flex-wrap md:flex-nowrap py-4 px-8 gap-2 md:gap-10 font-medium text-[#5e5c7f] dark:text-[#CBD5E1] ">
-        <li
-          className={`${
-            currentSection === SECTION_ID.HOME &&
-            "bg-slate-100 dark:bg-slate-600"
-          } rounded-full px-3 py-1`}
-        >
-          <a href={`#${SECTION_ID.HOME}`}>{getText("Home")}</a>
-        </li>
-        <li
-          className={`${
-            currentSection === SECTION_ID.ABOUT &&
-            "bg-slate-100 dark:bg-slate-600"
-          } rounded-full px-3 py-1`}
-        >
-          <a href={`#${SECTION_ID.ABOUT}`}>{getText("About me")}</a>
-        </li>
-        <li
-          className={`${
-            currentSection === SECTION_ID.PROJECTS &&
-            "bg-slate-100 dark:bg-slate-600"
-          } rounded-full px-3 py-1`}
-        >
-          <a href={`#${SECTION_ID.PROJECTS}`}>{getText("Projects")}</a>
-        </li>
-        <li
-          className={`${
-            currentSection === SECTION_ID.SKILLS &&
-            "bg-slate-100 dark:bg-slate-600"
-          } rounded-full px-3 py-1`}
-        >
-          <a href={`#${SECTION_ID.SKILLS}`}>{getText("Skills")}</a>
-        </li>
-        <li
-          className={`${
-            currentSection === SECTION_ID.CONTACT &&
-            "bg-slate-100 dark:bg-slate-600"
-          } rounded-full px-3 py-1`}
-        >
-          <a href={`#${SECTION_ID.CONTACT}`}>{getText("Contact")}</a>
-        </li>
+        <Scroller
+          isActive={currentSection === SECTION_ID.HOME}
+          linkText="Home"
+          sectionName={SECTION_ID.HOME}
+        />
+        <Scroller
+          isActive={currentSection === SECTION_ID.ABOUT}
+          linkText="About me"
+          sectionName={SECTION_ID.ABOUT}
+        />
+        <Scroller
+          isActive={currentSection === SECTION_ID.PROJECTS}
+          linkText="Projects"
+          sectionName={SECTION_ID.PROJECTS}
+        />
+        <Scroller
+          isActive={currentSection === SECTION_ID.SKILLS}
+          linkText="Skills"
+          sectionName={SECTION_ID.SKILLS}
+        />
+        <Scroller
+          isActive={currentSection === SECTION_ID.CONTACT}
+          linkText="Contact"
+          sectionName={SECTION_ID.CONTACT}
+        />
       </ul>
     </nav>
   );

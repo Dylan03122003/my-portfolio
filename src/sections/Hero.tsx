@@ -33,7 +33,6 @@ const Hero = () => {
             </span>
             mang ý tưởng vào cuộc sống.
           </h2>
-          ;
         </>
       );
     } else {
@@ -73,7 +72,7 @@ const Hero = () => {
       <div className="mt-10 flex items-center justify-center flex-col sm:flex-row gap-4">
         <a
           href={`#${SECTION_ID.CONTACT}`}
-          className="flex items-center justify-center gap-2 bg-button-light-mode dark:bg-button-dark-mode px-6 py-2 text-white dark:text-primary-dark-mode rounded-full font-semibold"
+          className="flex items-center justify-center gap-2 bg-button-light-mode  dark:bg-button-dark-mode px-6 py-2 text-white dark:text-primary-dark-mode rounded-full font-semibold hover:bg-[#272e3f] hover:dark:bg-[#e0dee4] transition-all"
         >
           {getText("Contact me here")}
           <LiaLongArrowAltRightSolid />
@@ -84,7 +83,7 @@ const Hero = () => {
           download="CV_Cao Đặng Quốc Dương"
           target="_blank"
           rel="noreferrer"
-          className="flex items-center justify-center gap-2 bg-white dark:bg-[#1E293B] px-6 py-2 text-primary-dark-mode dark:text-white rounded-full font-semibold shadow-custom"
+          className="flex items-center justify-center gap-2 bg-white dark:bg-[#1E293B] px-6 py-2 text-primary-dark-mode dark:text-white hover:bg-gray-100 hover:dark:bg-[#272e3f] rounded-full font-semibold shadow-custom transition-all"
         >
           {getText("Download CV")}
           <HiDownload />
@@ -93,7 +92,7 @@ const Hero = () => {
         <a
           target="_blank"
           href={`${GITHUB_LINK}`}
-          className=" bg-white dark:bg-[#1E293B] p-3 text-primary-dark-mode dark:text-white rounded-full font-semibold shadow-custom"
+          className=" bg-white dark:bg-[#1E293B] p-3 text-primary-dark-mode dark:text-white hover:bg-gray-50 hover:dark:bg-[#272e3f] transition-all rounded-full font-semibold shadow-custom"
         >
           <BsGithub />
         </a>
@@ -101,7 +100,7 @@ const Hero = () => {
         <a
           href={`${FACEBOOK_LINK}`}
           target="_blank"
-          className=" bg-white dark:bg-[#1E293B] p-3 text-primary-dark-mode dark:text-white rounded-full font-semibold shadow-custom"
+          className=" bg-white dark:bg-[#1E293B] p-3 text-primary-dark-mode dark:text-white hover:bg-gray-50 hover:dark:bg-[#272e3f] transition-all rounded-full font-semibold shadow-custom"
         >
           <BsFacebook />
         </a>
