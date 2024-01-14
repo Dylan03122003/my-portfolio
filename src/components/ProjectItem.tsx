@@ -96,7 +96,7 @@ const ProjectItem = ({ project, currentTab }: Props) => {
 
         {selectedProject && (
           <Modal
-            className="w-[90%] md:w-[80%] xl:w-[1200px] h-[600px] sm:h-[800px] bg-card-light-mode dark:bg-card-dark-mode shadow-custom overflow-y-scroll"
+            className="w-[90%] md:w-[80%] xl:w-[1200px] h-[600px] sm:h-[800px] bg-card-light-mode dark:bg-card-dark-mode shadow-custom overflow-y-auto"
             onClose={() => setSelectedProject(null)}
           >
             <ProjectDetail

@@ -11,7 +11,7 @@ const ProjectDetail = ({ project, onClose }: Props) => {
 
   return (
     <div className="">
-      <div className=" p-4 h-[250px] flex items-center justify-start gap-2 overflow-x-scroll bg-primary-light-mode dark:bg-card-dark-mode">
+      <div className=" p-4 h-[250px] custom_scrollbar flex items-center justify-start gap-2 overflow-x-scroll bg-primary-light-mode dark:bg-card-dark-mode">
         {project.images.map((img, index) => (
           <img key={index} className="h-full w-full object-contain" src={img} />
         ))}
