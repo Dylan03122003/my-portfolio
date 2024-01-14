@@ -1,16 +1,19 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProjectItem from "../components/ProjectItem";
-import { TAB, projects, tabs } from "../data/projects";
+import { Project, TAB, projects, tabs } from "../data/projects";
 import { useAppContext } from "../hooks/useAppContext";
 import { SECTION_ID } from "../utils/section_ids";
 const Projects = () => {
   const { getText } = useAppContext();
   const [currentTab, setCurrentTab] = useState(TAB.REACT);
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
 
-  const filteredProjects = projects.filter((project) =>
-    project.tabs.includes(currentTab)
-  );
+  useEffect(() => {
+    setFilteredProjects(
+      projects.filter((project) => project.tabs.includes(currentTab))
+    );
+  }, [currentTab]);
 
   return (
     <section
