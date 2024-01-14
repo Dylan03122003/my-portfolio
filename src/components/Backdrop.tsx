@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { createPortal } from "react-dom";
 
 import React from "react";
 
@@ -8,7 +9,7 @@ type BackdropProps = {
 };
 
 const Backdrop = ({ children, onClick }: BackdropProps) => {
-  return (
+  return createPortal(
     <motion.div
       className="fixed z-50 top-0 left-0 h-full w-full bg-[#00000079] flex items-center justify-center"
       onClick={onClick}
@@ -17,7 +18,8 @@ const Backdrop = ({ children, onClick }: BackdropProps) => {
       exit={{ opacity: 0 }}
     >
       {children}
-    </motion.div>
+    </motion.div>,
+    document.getElementById("portal")!
   );
 };
 
