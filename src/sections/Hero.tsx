@@ -2,6 +2,7 @@ import { BsFacebook, BsGithub } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { LiaLongArrowAltRightSolid } from "react-icons/lia";
 import ImageProfile from "../components/ImageProfile";
+import Tooltip from "../components/ui/Tooltip";
 import { Language } from "../context/appContext";
 import { FACEBOOK_LINK, GITHUB_LINK } from "../data/social_media";
 import { useAppContext } from "../hooks/useAppContext";
@@ -88,22 +89,24 @@ const Hero = () => {
           {getText("Download CV")}
           <HiDownload />
         </a>
-
-        <a
-          target="_blank"
-          href={`${GITHUB_LINK}`}
-          className=" bg-white dark:bg-[#1E293B] p-3 text-primary-dark-mode dark:text-white hover:bg-gray-50 hover:dark:bg-[#272e3f] transition-all rounded-full font-semibold shadow-custom"
-        >
-          <BsGithub />
-        </a>
-
-        <a
-          href={`${FACEBOOK_LINK}`}
-          target="_blank"
-          className=" bg-white dark:bg-[#1E293B] p-3 text-primary-dark-mode dark:text-white hover:bg-gray-50 hover:dark:bg-[#272e3f] transition-all rounded-full font-semibold shadow-custom"
-        >
-          <BsFacebook />
-        </a>
+        <Tooltip title="View GitHub profile" width="w-[160px]">
+          <a
+            target="_blank"
+            href={`${GITHUB_LINK}`}
+            className="flex items-center justify-center w-10 h-10 bg-white dark:bg-[#1E293B]  text-primary-dark-mode dark:text-white hover:bg-gray-50 hover:dark:bg-[#272e3f] transition-all rounded-full font-semibold shadow-custom"
+          >
+            <BsGithub />
+          </a>
+        </Tooltip>
+        <Tooltip title="View Facebook profile" width="w-[180px]">
+          <a
+            href={`${FACEBOOK_LINK}`}
+            target="_blank"
+            className="flex items-center justify-center w-10 h-10 bg-white dark:bg-[#1E293B] text-primary-dark-mode dark:text-white hover:bg-gray-50 hover:dark:bg-[#272e3f] transition-all rounded-full font-semibold shadow-custom"
+          >
+            <BsFacebook />
+          </a>
+        </Tooltip>
       </div>
     </section>
   );

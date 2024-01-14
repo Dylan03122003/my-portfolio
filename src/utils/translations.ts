@@ -52,9 +52,9 @@ const translations: Translations = {
     en: "Sending...",
     vn: "Đang gửi...",
   },
-  "I am a diligent third-year student currently enrolled at FPT University. I have gained over 10 months of practical experience in working with React, Typescript, Express, and MySQL. I am actively looking for a challenging opportunity where I can apply my skillsand experience to make a meaningful contribution to your organization.":
+  "I am a diligent third-year student currently enrolled at FPT University. I have gained over 10 months of practical experience in working with React, Typescript, Express, and MySQL. I am actively looking for a challenging opportunity where I can apply my skills and experience to make a meaningful contribution to your organization.":
     {
-      en: "I am a diligent third-year student currently enrolled at FPT University. I have gained over 10 months of practical experience in working with React, Typescript, Express, and MySQL. I am actively looking for a challenging opportunity where I can apply my skillsand experience to make a meaningful contribution to your organization.",
+      en: "I am a diligent third-year student currently enrolled at FPT University. I have gained over 10 months of practical experience in working with React, Typescript, Express, and MySQL. I am actively looking for a challenging opportunity where I can apply my skills and experience to make a meaningful contribution to your organization.",
       vn: "Tôi là một sinh viên chăm chỉ năm ba hiện đang theo học tại Đại học FPT. Tôi đã tích lũy được hơn 10 tháng kinh nghiệm luyện tập trong việc làm việc với React, Typescript, Express và MySQL. Tôi đang tích cực tìm kiếm một cơ hội thách thức, nơi tôi có thể áp dụng kỹ năng và kinh nghiệm của mình để đóng góp ý nghĩa cho tổ chức của bạn.",
     },
   "E-commerce Bookstore Website": {

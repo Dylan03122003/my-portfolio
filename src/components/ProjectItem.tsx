@@ -11,6 +11,7 @@ import { Project, TAB } from "../data/projects";
 import { useAppContext } from "../hooks/useAppContext";
 import Modal from "./Modal";
 import ProjectDetail from "./ProjectDetail";
+import Tooltip from "./ui/Tooltip";
 interface Props {
   project: Project;
   currentTab: TAB;
@@ -150,34 +151,45 @@ const ProjectItem = ({ project, currentTab }: Props) => {
         </div>
         <div className="flex justify-center items-center gap-4">
           {project.githubLink && (
-            <a
-              href={`${project.githubLink}`}
-              className="relative"
-              target="_blank"
-            >
-              <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] h-[35px] w-[35px] bg-white rounded-full"></div>
-              <BsGithub className="w-9 h-9 relative z-10 " />
-            </a>
+            <Tooltip title="View source code" width="w-[150px]">
+              <a
+                href={`${project.githubLink}`}
+                className="relative"
+                target="_blank"
+              >
+                <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] h-[35px] w-[35px] bg-white rounded-full"></div>
+                <BsGithub className="w-9 h-9 relative z-10 " />
+              </a>
+            </Tooltip>
           )}
           {project.websiteLink && (
-            <a href={`${project.websiteLink}`} className="" target="_blank">
-              <BsEye className="text-text-light-mode dark:text-text-dark-mode w-10 h-10" />
-            </a>
+            <Tooltip title="View live demo" width="w-[140px]">
+              <a href={`${project.websiteLink}`} className="" target="_blank">
+                <BsEye className="text-text-light-mode dark:text-text-dark-mode w-10 h-10" />
+              </a>
+            </Tooltip>
           )}
           {project.youtubeLink && (
-            <a
-              // href={`${project.youtubeLink}`}
-              className="relative cursor-pointer"
-              target="_blank"
-              onClick={() => setOpen(true)}
-            >
-              <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] h-5 w-5 bg-white"></div>
-              <BsYoutube className="text-[#FF0000] relative z-10 w-10 h-10" />
-            </a>
+            <Tooltip title="View video demo" width="w-[150px]">
+              <a
+                // href={`${project.youtubeLink}`}
+                className="relative cursor-pointer"
+                target="_blank"
+                onClick={() => setOpen(true)}
+              >
+                <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] h-5 w-5 bg-white"></div>
+                <BsYoutube className="text-[#FF0000] relative z-10 w-10 h-10" />
+              </a>
+            </Tooltip>
           )}
-          <button onClick={() => setSelectedProject(project)}>
-            <BiDetail className="w-10 h-10 text-slate-500 dark:text-slate-300" />
-          </button>
+          <Tooltip title="View project detail" width="w-[160px]">
+            <button
+              className="mt-1"
+              onClick={() => setSelectedProject(project)}
+            >
+              <BiDetail className="w-10 h-10 text-slate-500 dark:text-slate-300" />
+            </button>
+          </Tooltip>
         </div>
       </div>
     </>

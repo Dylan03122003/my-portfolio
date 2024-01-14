@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { IoSettingsOutline } from "react-icons/io5";
 import Overlay from "../Overlay";
+import Tooltip from "../ui/Tooltip";
 import { useOutsideClick } from "../useOutsideClick";
 import ColorMode from "./ColorMode";
 import LanguageChange from "./LanguageChange";
@@ -18,14 +19,17 @@ export default function Setting() {
 
   return (
     <div className="h-fit flex items-center justify-start gap-4 fixed bottom-5 lg:top-5 lg:right-10 right-5">
-      <button
-        type="button"
-        onClick={() => {
-          setOpenSettings(true);
-        }}
-      >
-        <IoSettingsOutline className="w-7 h-7 text-title-light-mode dark:text-white cursor-pointer" />
-      </button>
+      <Tooltip title="Settings">
+        <button
+          type="button"
+          className="p-3 rounded-full hover:bg-gray-100 hover:dark:bg-slate-800"
+          onClick={() => {
+            setOpenSettings(true);
+          }}
+        >
+          <IoSettingsOutline className="w-7 h-7 text-title-light-mode dark:text-white cursor-pointer" />
+        </button>
+      </Tooltip>
       <div className="relative">
         {openSettings && (
           <>
