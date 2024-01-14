@@ -2,6 +2,7 @@ import { BiSun } from "react-icons/bi";
 import { BsMoonStars } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
 import { MdDone } from "react-icons/md";
+import { useAppContext } from "../../hooks/useAppContext";
 import useColorMode from "../../hooks/useColorMode";
 import BackToSettings from "./BackToSettings";
 import { SettingType } from "./Setting";
@@ -10,11 +11,17 @@ interface Props {
   settingType: SettingType | null;
   onClick: () => void;
   onBack: () => void;
+  onCloseSettings: () => void;
 }
 
-const ColorMode = ({ settingType, onClick, onBack }: Props) => {
-  const [colorMode, setColorMode] = useColorMode();
-  // onClick={() => setColorMode(colorMode === "light" ? "dark" : "light")}
+const ColorMode = ({
+  settingType,
+  onClick,
+  onBack,
+  onCloseSettings,
+}: Props) => {
+  const { setColorMode } = useAppContext();
+  const [colorMode] = useColorMode();
 
   return (
     <>
@@ -45,6 +52,8 @@ const ColorMode = ({ settingType, onClick, onBack }: Props) => {
             onClick={() => {
               setColorMode("dark");
               onBack();
+              onCloseSettings();
+              // onBack();
             }}
             className="w-full flex items-center gap-4 p-2 hover:bg-slate-100 hover:dark:bg-slate-700"
           >
@@ -62,6 +71,8 @@ const ColorMode = ({ settingType, onClick, onBack }: Props) => {
             onClick={() => {
               setColorMode("light");
               onBack();
+              onCloseSettings();
+              // onBack();
             }}
             className="w-full flex items-center gap-4 p-2 hover:bg-slate-100 hover:dark:bg-slate-700 "
           >
@@ -79,6 +90,5 @@ const ColorMode = ({ settingType, onClick, onBack }: Props) => {
     </>
   );
 };
-// 0EA5E9
-// gray: 14344C
+
 export default ColorMode;

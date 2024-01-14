@@ -45,11 +45,13 @@ export default function Setting() {
                 settingType={settingType}
                 onClick={() => setSettingType("Appearance")}
                 onBack={() => setSettingType(null)}
+                onCloseSettings={() => setOpenSettings(false)}
               />
               <LanguageChange
                 settingType={settingType}
                 onClick={() => setSettingType("Language")}
                 onBack={() => setSettingType(null)}
+                onCloseSettings={() => setOpenSettings(false)}
               />
             </div>
           </>

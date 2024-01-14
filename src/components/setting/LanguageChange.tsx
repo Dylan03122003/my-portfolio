@@ -10,9 +10,15 @@ interface Props {
   settingType: SettingType | null;
   onClick: () => void;
   onBack: () => void;
+  onCloseSettings: () => void;
 }
 
-const LanguageChange = ({ settingType, onClick, onBack }: Props) => {
+const LanguageChange = ({
+  settingType,
+  onClick,
+  onBack,
+  onCloseSettings,
+}: Props) => {
   const { state, dispatch } = useAppContext();
 
   const handleLanguageChange = (language: Language) => {
@@ -44,6 +50,7 @@ const LanguageChange = ({ settingType, onClick, onBack }: Props) => {
             onClick={() => {
               handleLanguageChange(Language.EN);
               onBack();
+              onCloseSettings();
             }}
             className="w-full flex items-center gap-4 p-2 hover:bg-slate-100 hover:dark:bg-slate-700"
           >
@@ -63,6 +70,7 @@ const LanguageChange = ({ settingType, onClick, onBack }: Props) => {
             onClick={() => {
               handleLanguageChange(Language.VN);
               onBack();
+              onCloseSettings();
             }}
             className="w-full flex items-center gap-4 p-2 hover:bg-slate-100 hover:dark:bg-slate-700 "
           >
