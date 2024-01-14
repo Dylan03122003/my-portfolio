@@ -25,9 +25,9 @@ const ProjectDetail = ({ project, onClose }: Props) => {
               <img className="w-full" src={fullScreenImg} alt="" />
               <button
                 onClick={() => setFullScreenImg(null)}
-                className="absolute left-[50%] -translate-x-[50%] mt-4 p-2 rounded-full bg-gray-900 hover:bg-white transition-colors"
+                className="group absolute left-[50%] -translate-x-[50%] mt-4 p-2 rounded-full bg-gray-900 hover:bg-white transition-colors"
               >
-                <IoMdClose className="w-6 h-6 text-white hover:text-gray-800 " />
+                <IoMdClose className="w-6 h-6 text-white group-hover:text-gray-800 " />
               </button>
             </div>
           </Modal>
