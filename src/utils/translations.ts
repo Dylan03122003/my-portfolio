@@ -85,6 +85,10 @@ const translations: Translations = {
     en: "Discussion Nest Website",
     vn: "Website bàn luận về công nghệ",
   },
+  QuizNest: {
+    en: "QuizNest",
+    vn: "QuizNest",
+  },
 };
 
 export const getText = (text: string, language: Language) => {

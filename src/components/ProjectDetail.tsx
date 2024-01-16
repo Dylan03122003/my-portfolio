@@ -20,7 +20,7 @@ const ProjectDetail = ({ project, onClose }: Props) => {
     <>
       <AnimatePresence initial={false} mode="wait">
         {fullScreenImg && (
-          <Modal className="w-[90%] " onClose={() => setFullScreenImg(null)}>
+          <Modal className="w-[85%] " onClose={() => setFullScreenImg(null)}>
             <div className="relative">
               <img className="w-full" src={fullScreenImg} alt="" />
               <button

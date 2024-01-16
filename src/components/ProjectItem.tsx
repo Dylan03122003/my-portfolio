@@ -116,7 +116,7 @@ const ProjectItem = ({ project, currentTab }: Props) => {
         </h3>
 
         <img
-          className="w-full rounded-md mb-4 shadow-custom"
+          className="w-full  rounded-md mb-4 shadow-custom"
           src={project.image}
           alt={`${project.title}_image`}
         />

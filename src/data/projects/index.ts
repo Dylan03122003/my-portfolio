@@ -21,6 +21,14 @@ import NoteApp1 from "./../../assets/img/website/note_app_1.jpg";
 import NoteApp2 from "./../../assets/img/website/note_app_2.jpg";
 import NoteApp3 from "./../../assets/img/website/note_app_3.jpg";
 import NoteTakingImage from "./../../assets/img/website/note_taking_website.jpg";
+import {
+  default as QuizNest1Image,
+  default as QuizNestImage,
+} from "./../../assets/img/website/quiznest1.jpg";
+import QuizNest2Image from "./../../assets/img/website/quiznest2.jpg";
+import QuizNest3Image from "./../../assets/img/website/quiznest3.jpg";
+import QuizNest4Image from "./../../assets/img/website/quiznest4.jpg";
+import QuizNest6Image from "./../../assets/img/website/quiznest6.jpg";
 import RecipeReact1 from "./../../assets/img/website/recipe-react-1.jpg";
 import RecipeReact2 from "./../../assets/img/website/recipe-react-2.jpg";
 import RecipeReact3 from "./../../assets/img/website/recipe-react-3.jpg";
@@ -66,6 +74,8 @@ export enum TECHNOLOGIES {
   JDBC = "JDBC",
   JSP = "JSP",
   JQUERY = "JQuery",
+  PRISMA = "Prisma",
+  POSTGRES = "PostgreSQL",
 }
 
 export enum ROLE {
@@ -270,9 +280,41 @@ const recipeV2 = {
   ],
 };
 
+const quizNestWebsite = {
+  tabs: [TAB.REACT, TAB.ALL],
+  title: "QuizNest",
+  image: QuizNestImage,
+  technologies: [
+    TECHNOLOGIES.REACT,
+    TECHNOLOGIES.TAILWIND,
+    TECHNOLOGIES.TYPESCRIPT,
+    TECHNOLOGIES.EXPRESS,
+    TECHNOLOGIES.PRISMA,
+    TECHNOLOGIES.POSTGRES,
+  ],
+  role: ROLE.FULL_STACK,
+  githubLink: "https://github.com/Dylan03122003/quiznest_client",
+  websiteLink: "https://understanda-dylan03122003.vercel.app",
+  youtubeLink: "https://youtu.be/vW2HWHYd_jg?si=pT6o8So85yfWe8IR",
+  description: [
+    "Integrated Clerk for authentication, user management UIs and APIs.",
+    "Sync Clerk data to backend with webhooks.",
+    "Fetching data and managing states using React Query.",
+    "Added tiptap package for editing contents.",
+  ],
+  images: [
+    QuizNest1Image,
+    QuizNest2Image,
+    QuizNest3Image,
+    QuizNest4Image,
+    QuizNest6Image,
+  ],
+};
+
 export const projects: Project[] = [
   bookstoreProject,
   youtubeKTVProject,
+  quizNestWebsite,
   noteTakingProject,
   recipeWebsite,
   foodOrderLandingPageProject,
