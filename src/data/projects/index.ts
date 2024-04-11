@@ -294,7 +294,7 @@ const quizNestWebsite = {
   ],
   role: ROLE.FULL_STACK,
   githubLink: "https://github.com/Dylan03122003/quiznest_client",
-  websiteLink: "https://understanda-dylan03122003.vercel.app",
+  websiteLink: "",
   youtubeLink: "https://youtu.be/vW2HWHYd_jg?si=pT6o8So85yfWe8IR",
   description: [
     "Integrated Clerk for authentication, user management UIs and APIs.",
