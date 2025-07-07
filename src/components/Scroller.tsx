@@ -1,5 +1,3 @@
-import { useAppContext } from "../hooks/useAppContext";
-
 interface Scroller {
   isActive: boolean;
   sectionName: string;
@@ -11,8 +9,6 @@ export default function Scroller({
   sectionName,
   linkText,
 }: Scroller) {
-  const { getText } = useAppContext();
-
   return (
     <li
       className={`${
@@ -21,7 +17,7 @@ export default function Scroller({
           : "hover:bg-slate-100 dark:hover:bg-slate-600"
       } rounded-full px-3 py-1 transition-all`}
     >
-      <a href={`#${sectionName}`}>{getText(linkText)}</a>
+      <a href={`#${sectionName}`}>{linkText}</a>
     </li>
   );
 }

@@ -54,11 +54,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed z-30 top-0 md:top-5 left-[50%] -translate-x-[50%] w-full md:w-[650px] bg-card-light-mode dark:bg-card-dark-mode rounded-none md:rounded-full shadow-custom transition-opacity delay-200 ${
+      className={`fixed z-30 top-0 xl:top-5 left-[50%] -translate-x-[50%] w-full xl:w-[1000px] bg-card-light-mode dark:bg-card-dark-mode rounded-none xl:rounded-full shadow-custom transition-opacity delay-200 ${
         scrollDirection === "down" ? "opacity-0" : "opacity-100"
       }`}
     >
-      <ul className=" flex items-center justify-center flex-wrap md:flex-nowrap py-4 px-8 gap-2 md:gap-10 font-medium text-[#5e5c7f] dark:text-[#CBD5E1] ">
+      <ul className=" flex items-center justify-center flex-wrap xl:flex-nowrap py-4 px-8 gap-2 xl:gap-10 font-medium text-[#5e5c7f] dark:text-[#CBD5E1] ">
         <Scroller
           isActive={currentSection === SECTION_ID.HOME}
           linkText="Home"
@@ -66,8 +66,23 @@ const Navbar = () => {
         />
         <Scroller
           isActive={currentSection === SECTION_ID.ABOUT}
-          linkText="About me"
+          linkText="About"
           sectionName={SECTION_ID.ABOUT}
+        />
+        <Scroller
+          isActive={currentSection === SECTION_ID.EXPERIENCE}
+          linkText="Experience"
+          sectionName={SECTION_ID.EXPERIENCE}
+        />
+        <Scroller
+          isActive={currentSection === SECTION_ID.CERTIFICATIONS}
+          linkText="Certifications"
+          sectionName={SECTION_ID.CERTIFICATIONS}
+        />
+        <Scroller
+          isActive={currentSection === SECTION_ID.EDUCATION}
+          linkText="Education"
+          sectionName={SECTION_ID.EDUCATION}
         />
         <Scroller
           isActive={currentSection === SECTION_ID.PROJECTS}

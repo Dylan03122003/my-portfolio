@@ -41,7 +41,6 @@ import RecipeV1_1 from "./../../assets/img/website/recipe_v1_1.jpg";
 import RecipeWebsiteImage from "./../../assets/img/website/recipe_website.jpg";
 import WorkoutTrackerProject from "./../../assets/img/website/workout_tracker_website.jpg";
 import YoutubeKTVImage from "./../../assets/img/website/youtube_ktv.jpg";
-
 // CROP IMAGE
 // width: 1900
 // Height: 965

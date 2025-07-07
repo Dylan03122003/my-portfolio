@@ -4,4 +4,7 @@ export enum SECTION_ID {
   PROJECTS = "projects",
   SKILLS = "skills",
   CONTACT = "contact",
+  EXPERIENCE = "experience",
+  CERTIFICATIONS = "certifications",
+  EDUCATION = "education",
 }
