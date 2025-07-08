@@ -219,67 +219,79 @@ const categoryTitles: Record<CategoryKey, string> = {
 
 const categoryColors: Record<
   CategoryKey,
-  { gradient: string; text: string; glow: string }
+  { gradient: string; text: string; glow: string; darkGlow: string }
 > = {
   programmingLanguages: {
     gradient: "from-blue-500 to-blue-600",
     text: "blue",
     glow: "0 0 20px rgba(59,130,246,0.5)",
+    darkGlow: "0 0 20px rgba(59,130,246,0.3)",
   },
   frontendDevelopment: {
     gradient: "from-purple-500 to-purple-600",
-    text: "purple",
+    text: "violet",
     glow: "0 0 20px rgba(139,92,246,0.5)",
+    darkGlow: "0 0 20px rgba(139,92,246,0.3)",
   },
   backendDevelopment: {
     gradient: "from-green-500 to-green-600",
     text: "green",
     glow: "0 0 20px rgba(16,185,129,0.5)",
+    darkGlow: "0 0 20px rgba(16,185,129,0.3)",
   },
   mobileDevelopment: {
-    gradient: "from-orange-500 to-orange-600",
-    text: "orange",
-    glow: "0 0 20px rgba(249,115,22,0.5)",
+    gradient: "from-blue-500 to-blue-600",
+    text: "blue",
+    glow: "0 0 20px rgba(59,130,246,0.5)",
+    darkGlow: "0 0 20px rgba(59,130,246,0.3)",
   },
   databaseManagement: {
     gradient: "from-red-500 to-red-600",
     text: "red",
     glow: "0 0 20px rgba(239,68,68,0.5)",
+    darkGlow: "0 0 20px rgba(239,68,68,0.3)",
   },
   webServers: {
-    gradient: "from-teal-500 to-teal-600",
-    text: "teal",
-    glow: "0 0 20px rgba(20,184,166,0.5)",
+    gradient: "from-green-500 to-green-600",
+    text: "green",
+    glow: "0 0 20px rgba(16,185,129,0.5)",
+    darkGlow: "0 0 20px rgba(16,185,129,0.3)",
   },
   versionControl: {
     gradient: "from-indigo-500 to-indigo-600",
     text: "indigo",
     glow: "0 0 20px rgba(99,102,241,0.5)",
+    darkGlow: "0 0 20px rgba(99,102,241,0.3)",
   },
   projectManagement: {
-    gradient: "from-amber-500 to-amber-600",
-    text: "amber",
-    glow: "0 0 20px rgba(245,158,11,0.5)",
+    gradient: "from-purple-500 to-purple-600",
+    text: "violet",
+    glow: "0 0 20px rgba(139,92,246,0.5)",
+    darkGlow: "0 0 20px rgba(139,92,246,0.3)",
   },
   cloudBasedTechnologies: {
     gradient: "from-cyan-500 to-cyan-600",
     text: "cyan",
     glow: "0 0 20px rgba(6,182,212,0.5)",
+    darkGlow: "0 0 20px rgba(6,182,212,0.3)",
   },
   operatingSystems: {
-    gradient: "from-emerald-500 to-emerald-600",
-    text: "emerald",
+    gradient: "from-green-500 to-green-600",
+    text: "green",
     glow: "0 0 20px rgba(16,185,129,0.5)",
+    darkGlow: "0 0 20px rgba(16,185,129,0.3)",
   },
   otherSoftwareTools: {
     gradient: "from-gray-500 to-gray-600",
     text: "gray",
     glow: "0 0 20px rgba(107,114,128,0.5)",
+    darkGlow: "0 0 20px rgba(107,114,128,0.3)",
   },
   testing: {
-    gradient: "from-rose-500 to-rose-600",
-    text: "rose",
-    glow: "0 0 20px rgba(244,63,94,0.5)",
+    gradient: "from-red-500 to-red-600",
+    text: "red",
+    glow: "0 0 20px rgba(239,68,68,0.5)",
+    darkGlow: "0 0 20px rgba(239,68,68,0.3)",
   },
 };
 
@@ -289,7 +301,7 @@ const GlowingOrb: React.FC<{ color: string; className?: string }> = ({
   className,
 }) => (
   <div
-    className={`absolute w-32 h-32 rounded-full blur-3xl opacity-20 ${color} ${className}`}
+    className={`absolute w-32 h-32 rounded-full blur-3xl opacity-20 dark:opacity-10 ${color} ${className}`}
   />
 );
 
@@ -297,22 +309,35 @@ const SkillItem: React.FC<{
   name: string;
   color: string;
   glow: string;
-}> = ({ name, color, glow }) => (
+  darkGlow: string;
+}> = ({ name, color, glow, darkGlow }) => (
   <motion.div
     variants={{
       hidden: { scale: 0.8, opacity: 0 },
       visible: { scale: 1, opacity: 1, transition: { duration: 0.5 } },
-      hover: { scale: 1.05, boxShadow: glow, transition: { duration: 0.3 } },
+      hover: {
+        scale: 1.05,
+        boxShadow: `var(--glow-light)`,
+        transition: { duration: 0.3 },
+      },
     }}
     whileHover="hover"
     className={`
       px-4 py-3 bg-gradient-to-br from-${color}-50 to-${color}-100
-      text-${color}-700 rounded-xl text-sm font-medium
-      border border-${color}-200 flex items-center gap-3
-      transition-all duration-300
+      dark:from-${color}-900/20 dark:to-${color}-800/20
+      text-${color}-700 dark:text-${color}-300 rounded-xl text-sm font-medium
+      border border-${color}-200 dark:border-${color}-700/50 flex items-center gap-3
+      transition-all duration-300 backdrop-blur-sm
+      dark:hover:shadow-[var(--glow-dark)]
     `}
+    style={
+      {
+        "--glow-light": glow,
+        "--glow-dark": darkGlow,
+      } as React.CSSProperties
+    }
   >
-    <span className={`text-xl text-${color}-600`}>
+    <span className={`text-xl text-${color}-600 dark:text-${color}-400`}>
       {skillIconMap[name] || <FaWrench />}
     </span>
     <span>{name}</span>
@@ -322,7 +347,7 @@ const SkillItem: React.FC<{
 const CategoryCard: React.FC<{
   category: CategoryKey;
 }> = ({ category }) => {
-  const { gradient, text, glow } = categoryColors[category];
+  const { gradient, text, glow, darkGlow } = categoryColors[category];
   const items = skillsData[category as keyof SkillsData];
   const isCloud = category === "cloudBasedTechnologies";
 
@@ -333,8 +358,16 @@ const CategoryCard: React.FC<{
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
       }}
-      className="backdrop-blur-sm bg-white/90 rounded-2xl p-8 shadow-xl border border-gray-200/50 overflow-hidden relative"
-      whileHover={{ boxShadow: glow }}
+      className="backdrop-blur-sm bg-white/90 dark:bg-slate-900/90 rounded-2xl p-8 shadow-xl border border-gray-200/50 dark:border-slate-700/50 overflow-hidden relative"
+      whileHover={{
+        boxShadow: `var(--card-glow-light)`,
+      }}
+      style={
+        {
+          "--card-glow-light": glow,
+          "--card-glow-dark": darkGlow,
+        } as React.CSSProperties
+      }
       transition={{ duration: 0.3 }}
     >
       <GlowingOrb color={`bg-${text}-500`} className="-top-16 -right-16" />
@@ -348,7 +381,7 @@ const CategoryCard: React.FC<{
         >
           {categoryIcons[category]}
         </motion.div>
-        <h3 className="text-2xl font-bold text-gray-800">
+        <h3 className="text-2xl font-bold text-gray-800 dark:text-slate-100">
           {categoryTitles[category]}
         </h3>
       </div>
@@ -358,10 +391,10 @@ const CategoryCard: React.FC<{
           ? (items as CloudProvider[]).flatMap((c) => [
               <div key={c.provider} className="w-full mb-4">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="text-2xl text-cyan-600">
+                  <span className="text-2xl text-cyan-600 dark:text-cyan-400">
                     {skillIconMap[c.provider] || <SiAmazonaws />}
                   </span>
-                  <h4 className="text-xl font-semibold text-cyan-800">
+                  <h4 className="text-xl font-semibold text-cyan-800 dark:text-cyan-300">
                     {c.provider}
                   </h4>
                 </div>
@@ -372,13 +405,20 @@ const CategoryCard: React.FC<{
                       name={svc}
                       color="cyan"
                       glow={categoryColors.cloudBasedTechnologies.glow}
+                      darkGlow={categoryColors.cloudBasedTechnologies.darkGlow}
                     />
                   ))}
                 </div>
               </div>,
             ])
           : (items as string[]).map((skill) => (
-              <SkillItem key={skill} name={skill} color={text} glow={glow} />
+              <SkillItem
+                key={skill}
+                name={skill}
+                color={text}
+                glow={glow}
+                darkGlow={darkGlow}
+              />
             ))}
       </div>
     </motion.div>
@@ -415,8 +455,8 @@ const SkillTabs: React.FC<{
           px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300
           ${
             active === "all"
-              ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-lg shadow-blue-500/30"
-              : "bg-white text-gray-700 hover:bg-gray-100 shadow-md"
+              ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-lg shadow-blue-500/30 dark:shadow-blue-500/20"
+              : "bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 shadow-md border border-gray-200 dark:border-slate-600"
           }
         `}
       >
@@ -439,8 +479,8 @@ const SkillTabs: React.FC<{
               px-5 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 transition-all duration-300
               ${
                 active === c
-                  ? `bg-gradient-to-r ${gradient} text-white shadow-lg shadow-${text}-500/30`
-                  : "bg-white text-gray-700 hover:bg-gray-100 shadow-md"
+                  ? `bg-gradient-to-r ${gradient} text-white shadow-lg shadow-${text}-500/30 dark:shadow-${text}-500/20`
+                  : "bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 shadow-md border border-gray-200 dark:border-slate-600"
               }
             `}
           >
@@ -477,7 +517,7 @@ const SkillsV2: React.FC = () => {
       : [activeTab];
 
   return (
-    <section id="skills" className="py-20 relative  overflow-hidden">
+    <section id="skills" className="py-20 relative overflow-hidden">
       <BackgroundPattern />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -519,6 +559,10 @@ const SkillsV2: React.FC = () => {
                 100% {
                   background-position: 0% 50%;
                 }
+              }
+
+              .dark .category-card:hover {
+                box-shadow: var(--card-glow-dark) !important;
               }
             `}</style>
           </motion.div>

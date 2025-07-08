@@ -67,7 +67,7 @@ const Hero = () => {
             </span>
             <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full opacity-50"></span>
           </span>
-          . I focus on building websites that
+          . I specialize in building websites that
           <span className="font-bold dark:text-white">
             {" "}
             not only look great but also meet real customer needs.

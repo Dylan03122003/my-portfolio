@@ -26,8 +26,8 @@ interface TechIconProps {
 // 2. Annotate the component with React.FC and destructure with the correct type
 const TechIcon: React.FC<TechIconProps> = ({ tech }) => {
   return (
-    <div className="flex items-center gap-1 bg-white/80 backdrop-blur-sm border border-blue-100 text-gray-800 px-3 py-1 rounded-full text-sm shadow-sm transition-all hover:shadow-md hover:bg-blue-50">
-      <span className="text-blue-600">
+    <div className="flex items-center gap-1 bg-white/80 dark:bg-slate-800/90 backdrop-blur-sm border border-blue-100 dark:border-slate-600/50 text-gray-800 dark:text-slate-100 px-3 py-1 rounded-full text-sm shadow-sm transition-all hover:shadow-md hover:bg-blue-50 dark:hover:bg-slate-700/80 dark:hover:border-slate-500/60">
+      <span className="text-blue-600 dark:text-blue-400">
         {technologyIconMap[tech] || <FaCode />}
       </span>
       <span className="font-medium">{tech}</span>
@@ -48,7 +48,7 @@ const ProjectCard = ({ project, onViewDetails, index }: ProjectCardProps) => {
 
   return (
     <div
-      className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl transform hover:-translate-y-2 border border-gray-100"
+      className="group bg-white dark:bg-gray-800/80 rounded-2xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
       style={{
         animationName: "fadeInUp",
         animationDuration: "0.6s",
@@ -124,7 +124,9 @@ const ProjectCard = ({ project, onViewDetails, index }: ProjectCardProps) => {
       {/* Content */}
       <div className="p-6">
         {/* Description */}
-        <p className="text-gray-600 mb-6">{project.briefDescription}</p>
+        <p className="text-gray-600 dark:text-gray-100 mb-6">
+          {project.briefDescription}
+        </p>
 
         {/* Technologies preview - limit to 5 */}
         <div className="mb-6">
@@ -133,7 +135,7 @@ const ProjectCard = ({ project, onViewDetails, index }: ProjectCardProps) => {
               <TechIcon key={index} tech={tech} />
             ))}
             {project.technologies.length > 5 && (
-              <span className="bg-white/80 backdrop-blur-sm border border-blue-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium shadow-sm">
+              <span className="bg-white/80 dark:bg-slate-800/90 backdrop-blur-sm border border-blue-100 dark:border-slate-600/50 text-gray-800 dark:text-slate-100 px-3 py-1 rounded-full text-sm font-medium shadow-sm transition-all hover:bg-blue-50 dark:hover:bg-slate-700/80 dark:hover:border-slate-500/60">
                 +{project.technologies.length - 5} more
               </span>
             )}
@@ -207,28 +209,31 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
       onClick={handleClose}
     >
       <div
-        className={`bg-white rounded-2xl overflow-hidden max-w-[52rem] w-full max-h-[90vh] flex flex-col transform transition-all duration-300 ${
+        className={`bg-white dark:bg-slate-900 rounded-2xl overflow-hidden max-w-[52rem] w-full max-h-[90vh] flex flex-col transform transition-all duration-300 ${
           isVisible ? "scale-100" : "scale-95"
         }`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="p-6 border-b border-gray-200 flex justify-between items-center bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div className="p-6 border-b border-gray-200 dark:border-slate-700 flex justify-between items-center bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-700">
           <div className="flex items-center gap-3">
-            <FaRegStar className="text-yellow-500" size={24} />
-            <h2 className="text-2xl font-bold text-gray-900">
+            <FaRegStar
+              className="text-yellow-500 dark:text-yellow-400"
+              size={24}
+            />
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-slate-100">
               {project.title}
             </h2>
           </div>
           <button
             onClick={handleClose}
-            className="text-gray-500 hover:text-gray-700 transition-colors"
+            className="text-gray-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-slate-200 transition-colors"
           >
             <GoXCircle size={28} />
           </button>
         </div>
 
-        <div className="overflow-y-auto flex-grow">
+        <div className="overflow-y-auto flex-grow custom-scrollbar">
           {/* Image gallery */}
           <div className="relative h-96 ">
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10"></div>
@@ -243,13 +248,13 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               <>
                 <button
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 p-3 rounded-full shadow-md opacity-80 hover:opacity-100 z-20 transition-all hover:bg-blue-600 hover:text-white"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-slate-800/90 p-3 rounded-full shadow-md opacity-80 hover:opacity-100 z-20 transition-all hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500"
                 >
                   <FaChevronLeft size={20} />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 p-3 rounded-full shadow-md opacity-80 hover:opacity-100 z-20 transition-all hover:bg-blue-600 hover:text-white"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-slate-800/90 p-3 rounded-full shadow-md opacity-80 hover:opacity-100 z-20 transition-all hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500"
                 >
                   <FaChevronRight size={20} />
                 </button>
@@ -260,8 +265,8 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                       onClick={() => setActiveImageIndex(index)}
                       className={`w-3 h-3 rounded-full transition-all ${
                         index === activeImageIndex
-                          ? "bg-blue-600 scale-125"
-                          : "bg-white"
+                          ? "bg-blue-600 dark:bg-blue-500 scale-125"
+                          : "bg-white dark:bg-slate-300"
                       }`}
                     />
                   ))}
@@ -275,14 +280,14 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             {/* Description */}
             <div className="mb-8">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white">
+                <div className="w-10 h-10 rounded-full bg-blue-600 dark:bg-blue-500 flex items-center justify-center text-white">
                   <Sparkles size={20} />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-slate-100">
                   About the Project
                 </h3>
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed">
+              <p className="text-gray-700 dark:text-slate-300 text-lg leading-relaxed">
                 {project.briefDescription}
               </p>
             </div>
@@ -294,7 +299,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                   href={project.websiteLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-lg transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 bg-blue-50 dark:bg-blue-900/30 hover:bg-blue-100 dark:hover:bg-blue-900/50 text-blue-700 dark:text-blue-300 rounded-lg transition-colors"
                 >
                   <FiExternalLink size={18} />
                   <span className="font-medium">Visit Website</span>
@@ -306,7 +311,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                   href={project.repoLink.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-lg transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-800 dark:text-slate-200 rounded-lg transition-colors"
                 >
                   <FaGithub size={18} />
                   <span className="font-medium">View Repository</span>
@@ -318,7 +323,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                   href={project.demoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-red-50 hover:bg-red-100 text-red-700 rounded-lg transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 bg-red-50 dark:bg-red-900/30 hover:bg-red-100 dark:hover:bg-red-900/50 text-red-700 dark:text-red-300 rounded-lg transition-colors"
                 >
                   <FaYoutube size={18} />
                   <span className="font-medium">Watch Demo</span>
@@ -329,9 +334,9 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             {/* Roles and Technologies in a card-based layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {/* Roles */}
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-xl p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800/50 dark:to-slate-700/50 border border-blue-100 dark:border-slate-600/50 rounded-xl p-6">
+                <h3 className="text-lg font-bold text-gray-900 dark:text-slate-100 mb-4 flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-blue-600 dark:bg-blue-500 flex items-center justify-center text-white">
                     <FaRegStar size={16} />
                   </div>
                   My Roles
@@ -340,7 +345,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                   {project.roles.map((role, index) => (
                     <span
                       key={index}
-                      className="bg-blue-600/10 border border-blue-200 text-blue-800 px-4 py-2 rounded-lg text-sm font-medium"
+                      className="bg-blue-600/10 dark:bg-blue-500/20 border border-blue-200 dark:border-blue-400/30 text-blue-800 dark:text-blue-300 px-4 py-2 rounded-lg text-sm font-medium"
                     >
                       {role}
                     </span>
@@ -349,9 +354,9 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               </div>
 
               {/* Technologies */}
-              <div className="bg-gradient-to-br from-gray-50 to-blue-50 border border-gray-200 rounded-xl p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-white">
+              <div className="bg-gradient-to-br from-gray-50 to-blue-50 dark:from-slate-800/50 dark:to-slate-700/50 border border-gray-200 dark:border-slate-600/50 rounded-xl p-6">
+                <h3 className="text-lg font-bold text-gray-900 dark:text-slate-100 mb-4 flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-gray-700 dark:bg-slate-600 flex items-center justify-center text-white">
                     <FaCode size={16} />
                   </div>
                   Technologies
@@ -365,9 +370,9 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             </div>
 
             {/* Highlights with icon bullets */}
-            <div className="bg-gradient-to-br from-white to-blue-50 border border-gray-200 rounded-xl p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-white">
+            <div className="bg-gradient-to-br from-white to-blue-50 dark:from-slate-800/50 dark:to-slate-700/50 border border-gray-200 dark:border-slate-600/50 rounded-xl p-6">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-slate-100 mb-4 flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-green-600 dark:bg-green-500 flex items-center justify-center text-white">
                   <Sparkles size={16} />
                 </div>
                 Key Features & Highlights
@@ -375,12 +380,17 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               <ul className="space-y-4">
                 {project.highlights.map((highlight, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <div className="mt-1 text-green-600">
-                      <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
-                        <FaRegStar size={12} className="text-green-600" />
+                    <div className="mt-1 text-green-600 dark:text-green-400">
+                      <div className="w-5 h-5 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                        <FaRegStar
+                          size={12}
+                          className="text-green-600 dark:text-green-400"
+                        />
                       </div>
                     </div>
-                    <span className="text-gray-700">{highlight}</span>
+                    <span className="text-gray-700 dark:text-slate-300">
+                      {highlight}
+                    </span>
                   </li>
                 ))}
               </ul>

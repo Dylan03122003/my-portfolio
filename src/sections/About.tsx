@@ -120,13 +120,14 @@ const About = () => {
                 <span className="text-2xl font-serif text-blue-600 dark:text-blue-400 absolute -left-2 -top-3">
                   "
                 </span>
-                Full Stack Software Engineer and AWS Certified with 6+ months of
-                hands-on experience in Next.js and React.js. Skilled in backend
-                development principles and technologies, including NestJS and
-                Express.js. Recently achieved a TOEIC score of 835 ,
-                demonstrating strong professional English proficiency. Committed
-                to continuous learning and contributing to team success through
-                effective collaboration and innovative solutions.
+                Fullstack Software Engineer and AWS Certified with 1+ year of
+                hands-on experience in Next.js/React. Skilled in backend
+                development principles and technologies, including
+                NestJS/Express. Recently achieved a TOEIC score of 835,
+                demonstrating strong professional English proficiency. Brings
+                more than 3 years of leadership experience in university
+                projects. Committed to building great software fast, boosting
+                team results, and keeping customers happy from day one.
                 <span className="text-2xl font-serif text-blue-600 dark:text-blue-400 absolute -right-2 bottom-0">
                   "
                 </span>

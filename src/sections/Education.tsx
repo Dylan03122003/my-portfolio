@@ -109,22 +109,22 @@ export default function Education() {
             >
               {/* Gradient Border Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-0.5">
-                <div className="absolute inset-0 bg-white rounded-xl"></div>
+                <div className="absolute inset-0 bg-white dark:bg-gray-800/80 rounded-xl"></div>
               </div>
 
               <div className="relative p-8 flex flex-col md:flex-row md:items-start">
                 {/* Center Column - Main Content */}
                 <div className="flex-grow">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
                     {edu.degree}
                   </h3>
-                  <h4 className="text-xl text-gray-700 mb-4">
+                  <h4 className="text-xl text-gray-700 dark:text-white mb-4">
                     {edu.institution}
                   </h4>
 
                   <div className="flex flex-wrap gap-4 mb-6">
                     {/* Date Badge */}
-                    <div className="bg-blue-50 text-blue-700 px-4 py-1 rounded-full text-sm font-medium flex items-center">
+                    <div className="bg-blue-50 dark:bg-blue-800 text-blue-700 dark:text-blue-100 px-4 py-1 rounded-full text-sm font-medium flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-4 w-4 mr-1"
@@ -144,7 +144,7 @@ export default function Education() {
 
                     {/* GPA Badge */}
                     {edu.gpa && (
-                      <div className="bg-green-50 text-green-700 px-4 py-1 rounded-full text-sm font-medium flex items-center">
+                      <div className="bg-green-50 dark:bg-green-800 text-green-700 dark:text-green-100 px-4 py-1 rounded-full text-sm font-medium flex items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-4 w-4 mr-1"
@@ -166,10 +166,10 @@ export default function Education() {
 
                   {/* Highlights Section */}
                   <div className="mt-6">
-                    <h5 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                    <h5 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5 mr-2 text-blue-600"
+                        className="h-5 w-5 mr-2 text-blue-600 dark:text-blue-200"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -196,7 +196,7 @@ export default function Education() {
                           <div className="h-6 w-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex-shrink-0 flex items-center justify-center text-white font-medium text-sm mt-0.5">
                             {index + 1}
                           </div>
-                          <p className="text-gray-700 ml-3 flex-1">
+                          <p className="text-gray-700 dark:text-gray-100 ml-3 flex-1">
                             {highlight}
                           </p>
                         </motion.div>
@@ -218,7 +218,7 @@ export default function Education() {
                 </div>
 
                 {/* Right Column - Status Indicator */}
-                <div className="mt-6 md:mt-0 md:ml-8 flex-shrink-0">
+                {/* <div className="mt-6 md:mt-0 md:ml-8 flex-shrink-0">
                   {edu.endDate === "Present" ? (
                     <div className="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg font-medium uppercase text-sm tracking-wider flex items-center">
                       <motion.div
@@ -233,19 +233,19 @@ export default function Education() {
                       Completed
                     </div>
                   )}
-                </div>
+                </div> */}
               </div>
             </motion.div>
 
             {/* Background decoration */}
             <motion.div
-              className="absolute -bottom-4 -right-4 w-32 h-32 rounded-full bg-blue-50 -z-10"
+              className="absolute -bottom-4 -right-4 w-32 h-32 rounded-full bg-blue-100 dark:bg-blue-800 -z-10"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5 }}
             />
             <motion.div
-              className="absolute -top-4 -left-4 w-24 h-24 rounded-full bg-purple-50 -z-10"
+              className="absolute -top-4 -left-4 w-24 h-24 rounded-full bg-purple-100 dark:bg-purple-800 -z-10"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5 }}

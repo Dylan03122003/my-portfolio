@@ -78,7 +78,8 @@ const project3: Project = {
   roles: [ROLE.FRONT_END],
   technologies: [TECHNOLOGIES.REACT, TECHNOLOGIES.TYPESCRIPT, TECHNOLOGIES.MUI],
   highlights: [
-    "With the assistance of my mentor, I successfully contributed new features to enhance user experience",
+    "Delivered new features under mentor guidance, significantly improving overall product functionality and user experience.",
+    "Contributed impactful features, including tag-based video filtering, favorites functionality, and enhancements to existing components, elevating the platform's usability and engagement.",
   ],
   mainImage: images.YoutubeKTV[0],
   images: images.YoutubeKTV,
