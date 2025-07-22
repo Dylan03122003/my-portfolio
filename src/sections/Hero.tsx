@@ -8,7 +8,7 @@ import { Language } from "../context/appContext";
 import { FACEBOOK_LINK, LINKEDIN_LINK } from "../data/social_media";
 import { useAppContext } from "../hooks/useAppContext";
 import { SECTION_ID } from "../utils/section_ids";
-import cv from "./../assets/CV_Cao Đặng Quốc Dương.pdf";
+import cv from "./../assets/CaoDangQuocDuong_CV.pdf";
 import Profile from "./../assets/profile_cleared.jpg";
 import BackgroundPattern from "../components/BackgroundPattern";
 
@@ -119,7 +119,7 @@ const Hero = () => {
 
           <a
             href={cv}
-            download="CV_Cao Đặng Quốc Dương"
+            download="CaoDangQuocDuong_CV.pdf"
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-center gap-2 bg-white dark:bg-gray-800 px-8 py-3 text-gray-800 dark:text-white hover:bg-gray-100 hover:dark:bg-gray-700 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-200 dark:border-gray-700"
