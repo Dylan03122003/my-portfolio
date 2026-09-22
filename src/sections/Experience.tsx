@@ -5,36 +5,64 @@ import BackgroundPattern from "../components/BackgroundPattern";
 import SectionHeader from "../components/SectionHeader";
 import { FaRegClock } from "react-icons/fa6";
 
+const parseYearMonth = (dateString: string): Date => {
+  const [year, month] = dateString.split("-");
+  return new Date(parseInt(year), parseInt(month) - 1);
+};
+
 // Format date from YYYY-MM to Month Year
 const formatDate = (dateString: string): string => {
-  const [year, month] = dateString.split("-");
-  const date = new Date(parseInt(year), parseInt(month) - 1);
-  return date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  return parseYearMonth(dateString).toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
 };
 
-// Calculate duration between two dates
-const calculateDuration = (startDate: string, endDate: string): string => {
-  const start = new Date(startDate);
-  const end = new Date(endDate);
-
-  const monthDiff =
-    (end.getFullYear() - start.getFullYear()) * 12 +
-    end.getMonth() -
-    start.getMonth();
-
-  const years = Math.floor(monthDiff / 12);
-  const months = monthDiff % 12;
-
-  let duration = "";
-  if (years > 0) {
-    duration += `${years} year${years > 1 ? "s" : ""}`;
-  }
-  if (months > 0) {
-    duration += `${duration ? " " : ""}${months} month${months > 1 ? "s" : ""}`;
-  }
-
-  return duration;
+const formatDateRange = (startDate: string, endDate: string | null): string => {
+  return `${formatDate(startDate)} - ${endDate ? formatDate(endDate) : "Current"}`;
 };
+
+const listItemVariants = {
+  hidden: { x: -20, opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+    },
+  },
+};
+
+const HighlightList = ({ items }: { items: string[] }) => (
+  <motion.ul className="space-y-4 text-gray-700">
+    {items.map((resp, respIndex) => (
+      <motion.li
+        key={respIndex}
+        variants={listItemVariants}
+        className="flex items-start text-gray-900 dark:text-white"
+      >
+        <span className="inline-block mr-3 mt-1.5 text-violet-500 dark:text-violet-300">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+        </span>
+        <span>{resp}</span>
+      </motion.li>
+    ))}
+  </motion.ul>
+);
 
 const Experience = () => {
   const [expandedExp, setExpandedExp] = useState<number | null>(0);
@@ -78,18 +106,6 @@ const Experience = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.05,
-      },
-    },
-  };
-
-  const listItemVariants = {
-    hidden: { x: -20, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
       },
     },
   };
@@ -171,15 +187,16 @@ const Experience = () => {
 
                   <div className="mt-4 md:mt-0 md:text-right">
                     <div className="px-4 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-200 inline-block">
-                      {formatDate(experience.startDate)} -{" "}
-                      {formatDate(experience.endDate)}
-                    </div>
-                    <p className="text-indigo-700 dark:text-indigo-200 font-medium mt-2">
-                      {calculateDuration(
+                      {formatDateRange(
                         experience.startDate,
-                        experience.endDate
+                        experience.endDate,
                       )}
-                    </p>
+                    </div>
+                    {experience.location && (
+                      <p className="text-indigo-700 dark:text-indigo-200 font-medium mt-2">
+                        {experience.location}
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -208,38 +225,32 @@ const Experience = () => {
                     variants={listVariants}
                     initial="hidden"
                     animate="visible"
-                    className="mt-6 bg-gray-50 dark:dark:bg-gray-800/80 p-6 rounded-lg border border-gray-100 dark:border-gray-700"
+                    className="mt-6 bg-gray-50 dark:dark:bg-gray-800/80 p-6 rounded-lg border border-gray-200 dark:border-gray-700"
                   >
                     <h4 className="text-lg font-semibold text-indigo-700 dark:text-indigo-300 mb-4">
                       Highlights
                     </h4>
-                    <motion.ul className="space-y-4 text-gray-700">
-                      {experience.responsibilities.map((resp, respIndex) => (
-                        <motion.li
-                          key={respIndex}
-                          variants={listItemVariants}
-                          className="flex items-start text-gray-900 dark:text-white"
-                        >
-                          <span className="inline-block mr-3 mt-1.5 text-violet-500 dark:text-violet-300">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="h-4 w-4"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M5 13l4 4L19 7"
-                              />
-                            </svg>
-                          </span>
-                          <span>{resp}</span>
-                        </motion.li>
-                      ))}
-                    </motion.ul>
+                    {experience.projects && experience.projects.length > 0 ? (
+                      <div className="space-y-8">
+                        {experience.projects.map((project, projectIndex) => (
+                          <div key={projectIndex}>
+                            <h5 className="text-base font-semibold text-gray-800 dark:text-white">
+                              {project.name}
+                            </h5>
+                            {project.description && (
+                              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 mb-3">
+                                {project.description}
+                              </p>
+                            )}
+                            <HighlightList items={project.responsibilities} />
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <HighlightList
+                        items={experience.responsibilities ?? []}
+                      />
+                    )}
                   </motion.div>
                 )}
 

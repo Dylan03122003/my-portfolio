@@ -11,6 +11,7 @@ export type SkillCategoryKey =
   | "cloudBasedTechnologies"
   | "operatingSystems"
   | "otherSoftwareTools"
+  | "aiAndAutomation"
   | "testing";
 
 export interface CloudProvider {
@@ -30,6 +31,7 @@ export interface SkillsData {
   cloudBasedTechnologies: CloudProvider[];
   operatingSystems: string[];
   otherSoftwareTools: string[];
+  aiAndAutomation: string[];
   testing: string[];
 }
 
@@ -44,6 +46,7 @@ export const skillsData: SkillsData = {
     "Ant Design",
     "shadcn/ui",
     "Bootstrap",
+    "Micro-frontends",
     "Progressive Web Apps",
     "WebSockets",
     "HTML",
@@ -52,7 +55,11 @@ export const skillsData: SkillsData = {
     "SCSS",
   ],
   backendDevelopment: ["NestJS", "Express.js", "Node.js", "Prisma"],
-  mobileDevelopment: ["React Native", "Android Studio"],
+  mobileDevelopment: [
+    "React Native",
+    "Android Studio",
+    "TestFlight (iOS) + Google Play (Android) distribution",
+  ],
   databaseManagement: [
     "Microsoft SQL Server",
     "Redis",
@@ -64,7 +71,7 @@ export const skillsData: SkillsData = {
     "Firebase",
   ],
   webServers: ["Caddy"],
-  versionControl: ["Git", "GitLab", "GitHub"],
+  versionControl: ["Git", "GitLab", "GitHub", "GitHub Actions"],
   projectManagement: ["Scrum", "Agile Methodology", "Jira"],
   cloudBasedTechnologies: [
     {
@@ -74,5 +81,11 @@ export const skillsData: SkillsData = {
   ],
   operatingSystems: ["Linux/Unix", "Windows"],
   otherSoftwareTools: ["Postman"],
+  aiAndAutomation: [
+    "Cursor",
+    "GitHub Copilot",
+    "AI Workflow Automation",
+    "Prompt Engineering",
+  ],
   testing: ["Jest (unit testing)", "Selenium"],
 };

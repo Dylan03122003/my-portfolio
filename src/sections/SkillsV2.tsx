@@ -39,11 +39,19 @@ import {
   SiPostman,
   SiJest,
   SiSelenium,
+  SiGithubactions,
 } from "react-icons/si";
-import { FaJava, FaProjectDiagram, FaWrench } from "react-icons/fa";
+import {
+  FaJava,
+  FaProjectDiagram,
+  FaWrench,
+  FaRobot,
+  FaCubes,
+  FaApple,
+} from "react-icons/fa";
 import { TbBrandReactNative } from "react-icons/tb";
 import { RiTestTubeFill } from "react-icons/ri";
-import { MdOutlineVerified } from "react-icons/md";
+import { MdOutlineVerified, MdAutoAwesome } from "react-icons/md";
 import {
   BsCodeSlash,
   BsWindow,
@@ -70,6 +78,7 @@ type CategoryKey =
   | "cloudBasedTechnologies"
   | "operatingSystems"
   | "otherSoftwareTools"
+  | "aiAndAutomation"
   | "testing";
 
 interface CloudProvider {
@@ -88,6 +97,7 @@ interface SkillsData {
   cloudBasedTechnologies: CloudProvider[];
   operatingSystems: string[];
   otherSoftwareTools: string[];
+  aiAndAutomation: string[];
   testing: string[];
 }
 
@@ -102,6 +112,7 @@ const skillsData: SkillsData = {
     "Ant Design",
     "shadcn/ui",
     "Bootstrap",
+    "Micro-frontends",
     "Progressive Web Apps",
     "WebSockets",
     "HTML",
@@ -110,7 +121,11 @@ const skillsData: SkillsData = {
     "SCSS",
   ],
   backendDevelopment: ["NestJS", "Express.js", "Node.js", "Prisma"],
-  mobileDevelopment: ["React Native", "Android Studio"],
+  mobileDevelopment: [
+    "React Native",
+    "Android Studio",
+    "TestFlight (iOS) + Google Play (Android) distribution",
+  ],
   databaseManagement: [
     "Microsoft SQL Server",
     "Redis",
@@ -122,7 +137,7 @@ const skillsData: SkillsData = {
     "Firebase",
   ],
   webServers: ["Caddy"],
-  versionControl: ["Git", "GitLab", "GitHub"],
+  versionControl: ["Git", "GitLab", "GitHub", "GitHub Actions"],
   projectManagement: ["Scrum", "Agile Methodology", "Jira"],
   cloudBasedTechnologies: [
     {
@@ -132,6 +147,12 @@ const skillsData: SkillsData = {
   ],
   operatingSystems: ["Linux/Unix", "Windows"],
   otherSoftwareTools: ["Postman"],
+  aiAndAutomation: [
+    "Cursor",
+    "GitHub Copilot",
+    "AI Workflow Automation",
+    "Prompt Engineering",
+  ],
   testing: ["Jest (unit testing)", "Selenium"],
 };
 
@@ -185,6 +206,13 @@ const skillIconMap: Record<string, JSX.Element> = {
   Postman: <SiPostman />,
   "Jest (unit testing)": <SiJest />,
   Selenium: <SiSelenium />,
+  "Micro-frontends": <FaCubes />,
+  "TestFlight (iOS) + Google Play (Android) distribution": <FaApple />,
+  "GitHub Actions": <SiGithubactions />,
+  Cursor: <MdAutoAwesome />,
+  "GitHub Copilot": <SiGithub />,
+  "AI Workflow Automation": <FaRobot />,
+  "Prompt Engineering": <MdAutoAwesome />,
 };
 
 const categoryIcons: Record<CategoryKey, JSX.Element> = {
@@ -199,6 +227,7 @@ const categoryIcons: Record<CategoryKey, JSX.Element> = {
   cloudBasedTechnologies: <BsCloud />,
   operatingSystems: <BsTerminal />,
   otherSoftwareTools: <FaWrench />,
+  aiAndAutomation: <FaRobot />,
   testing: <RiTestTubeFill />,
 };
 
@@ -214,7 +243,54 @@ const categoryTitles: Record<CategoryKey, string> = {
   cloudBasedTechnologies: "Cloud Technologies",
   operatingSystems: "Operating Systems",
   otherSoftwareTools: "Development Tools",
+  aiAndAutomation: "AI & Automation",
   testing: "Testing",
+};
+
+const skillToneClasses: Record<
+  string,
+  { chip: string; icon: string; orb: string }
+> = {
+  blue: {
+    chip: "bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-700/50",
+    icon: "text-blue-600 dark:text-blue-400",
+    orb: "bg-blue-500",
+  },
+  violet: {
+    chip: "bg-gradient-to-br from-violet-50 to-violet-100 dark:from-violet-900/20 dark:to-violet-800/20 text-violet-700 dark:text-violet-300 border-violet-200 dark:border-violet-700/50",
+    icon: "text-violet-600 dark:text-violet-400",
+    orb: "bg-violet-500",
+  },
+  green: {
+    chip: "bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 text-green-700 dark:text-green-300 border-green-200 dark:border-green-700/50",
+    icon: "text-green-600 dark:text-green-400",
+    orb: "bg-green-500",
+  },
+  red: {
+    chip: "bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 text-red-700 dark:text-red-300 border-red-200 dark:border-red-700/50",
+    icon: "text-red-600 dark:text-red-400",
+    orb: "bg-red-500",
+  },
+  indigo: {
+    chip: "bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-700/50",
+    icon: "text-indigo-600 dark:text-indigo-400",
+    orb: "bg-indigo-500",
+  },
+  cyan: {
+    chip: "bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-cyan-900/20 dark:to-cyan-800/20 text-cyan-700 dark:text-cyan-300 border-cyan-200 dark:border-cyan-700/50",
+    icon: "text-cyan-600 dark:text-cyan-400",
+    orb: "bg-cyan-500",
+  },
+  gray: {
+    chip: "bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800/40 dark:to-gray-700/40 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600/50",
+    icon: "text-gray-600 dark:text-gray-400",
+    orb: "bg-gray-500",
+  },
+  fuchsia: {
+    chip: "bg-gradient-to-br from-fuchsia-50 to-fuchsia-100 dark:from-fuchsia-900/20 dark:to-fuchsia-800/20 text-fuchsia-700 dark:text-fuchsia-300 border-fuchsia-200 dark:border-fuchsia-700/50",
+    icon: "text-fuchsia-600 dark:text-fuchsia-400",
+    orb: "bg-fuchsia-500",
+  },
 };
 
 const categoryColors: Record<
@@ -287,6 +363,12 @@ const categoryColors: Record<
     glow: "0 0 20px rgba(107,114,128,0.5)",
     darkGlow: "0 0 20px rgba(107,114,128,0.3)",
   },
+  aiAndAutomation: {
+    gradient: "from-fuchsia-500 to-fuchsia-600",
+    text: "fuchsia",
+    glow: "0 0 20px rgba(217,70,239,0.5)",
+    darkGlow: "0 0 20px rgba(217,70,239,0.3)",
+  },
   testing: {
     gradient: "from-red-500 to-red-600",
     text: "red",
@@ -310,44 +392,47 @@ const SkillItem: React.FC<{
   color: string;
   glow: string;
   darkGlow: string;
-}> = ({ name, color, glow, darkGlow }) => (
-  <motion.div
-    variants={{
-      hidden: { scale: 0.8, opacity: 0 },
-      visible: { scale: 1, opacity: 1, transition: { duration: 0.5 } },
-      hover: {
-        scale: 1.05,
-        boxShadow: `var(--glow-light)`,
-        transition: { duration: 0.3 },
-      },
-    }}
-    whileHover="hover"
-    className={`
-      px-4 py-3 bg-gradient-to-br from-${color}-50 to-${color}-100
-      dark:from-${color}-900/20 dark:to-${color}-800/20
-      text-${color}-700 dark:text-${color}-300 rounded-xl text-sm font-medium
-      border border-${color}-200 dark:border-${color}-700/50 flex items-center gap-3
+}> = ({ name, color, glow, darkGlow }) => {
+  const tone = skillToneClasses[color] ?? skillToneClasses.gray;
+
+  return (
+    <motion.div
+      variants={{
+        hidden: { scale: 0.8, opacity: 0 },
+        visible: { scale: 1, opacity: 1, transition: { duration: 0.5 } },
+        hover: {
+          scale: 1.05,
+          boxShadow: `var(--glow-light)`,
+          transition: { duration: 0.3 },
+        },
+      }}
+      whileHover="hover"
+      className={`
+      px-4 py-3 ${tone.chip} rounded-xl text-sm font-medium
+      border flex items-center gap-3
       transition-all duration-300 backdrop-blur-sm
       dark:hover:shadow-[var(--glow-dark)]
     `}
-    style={
-      {
-        "--glow-light": glow,
-        "--glow-dark": darkGlow,
-      } as React.CSSProperties
-    }
-  >
-    <span className={`text-xl text-${color}-600 dark:text-${color}-400`}>
-      {skillIconMap[name] || <FaWrench />}
-    </span>
-    <span>{name}</span>
-  </motion.div>
-);
+      style={
+        {
+          "--glow-light": glow,
+          "--glow-dark": darkGlow,
+        } as React.CSSProperties
+      }
+    >
+      <span className={`text-xl ${tone.icon}`}>
+        {skillIconMap[name] || <FaWrench />}
+      </span>
+      <span>{name}</span>
+    </motion.div>
+  );
+};
 
 const CategoryCard: React.FC<{
   category: CategoryKey;
 }> = ({ category }) => {
   const { gradient, text, glow, darkGlow } = categoryColors[category];
+  const tone = skillToneClasses[text] ?? skillToneClasses.gray;
   const items = skillsData[category as keyof SkillsData];
   const isCloud = category === "cloudBasedTechnologies";
 
@@ -370,8 +455,8 @@ const CategoryCard: React.FC<{
       }
       transition={{ duration: 0.3 }}
     >
-      <GlowingOrb color={`bg-${text}-500`} className="-top-16 -right-16" />
-      <GlowingOrb color={`bg-${text}-500`} className="-bottom-16 -left-16" />
+      <GlowingOrb color={tone.orb} className="-top-16 -right-16" />
+      <GlowingOrb color={tone.orb} className="-bottom-16 -left-16" />
 
       <div className="flex items-center gap-4 mb-6">
         <motion.div

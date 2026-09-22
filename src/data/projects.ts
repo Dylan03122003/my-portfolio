@@ -39,7 +39,7 @@ const project1: Project = {
   images: images.PT4U,
   demoLink: "https://www.youtube.com/watch?v=kYPPhq-7t0s",
   repoLink: undefined,
-  websiteLink: "https://pt4you.duongcao.dev",
+  websiteLink: undefined,
 };
 
 const project2: Project = {
