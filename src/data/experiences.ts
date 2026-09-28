@@ -48,24 +48,12 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    jobTitle: "Frontend Engineer",
-    roles: ["Frontend Engineer"],
-    company: "MyYoutubeKaraoke Extension",
-    location: "Thu Duc, HCM",
-    startDate: "2025-03",
-    endDate: "2025-07",
-    responsibilities: [
-      "Developed new features using React, TypeScript, and MUI, enhancing product functionality and improving the user experience for 280+ users.",
-      "Partnered with an Agoda Staff Software Engineer to apply engineering best practices across code reviews, architecture, and delivery.",
-    ],
-  },
-  {
     jobTitle: "Full Stack Engineer",
     roles: ["Full Stack Engineer"],
     company: "Fashion E-commerce Site (Contract)",
     location: "Thu Duc, HCM",
-    startDate: "2024-11",
-    endDate: "2025-02",
+    startDate: "2025-01",
+    endDate: "2025-07",
     responsibilities: [
       "Led the development of the fashion e-commerce platform for a retail client, delivering a scalable solution using React, TypeScript, NestJS, PostgreSQL and AWS.",
       "Implemented AWS Lambda serverless functions for intensive photo upload and resize operations, reducing processing time by 37% and improving user experience during product image uploads.",
@@ -74,11 +62,23 @@ export const experiences: Experience[] = [
     ],
   },
   {
+    jobTitle: "Frontend Engineer",
+    roles: ["Frontend Engineer"],
+    company: "MyYoutubeKaraoke Extension",
+    location: "Thu Duc, HCM",
+    startDate: "2024-06",
+    endDate: "2024-11",
+    responsibilities: [
+      "Developed new features using React, TypeScript, and MUI, enhancing product functionality and improving the user experience for 280+ users.",
+      "Partnered with an Agoda Staff Software Engineer to apply engineering best practices across code reviews, architecture, and delivery.",
+    ],
+  },
+  {
     jobTitle: "Frontend Engineer Intern",
     roles: ["Frontend Engineer Intern"],
     company: "FPT Software",
     location: "Thu Duc, HCM",
-    startDate: "2023-11",
+    startDate: "2023-09",
     endDate: "2024-04",
     responsibilities: [
       "Adapted quickly to multiple roles (Team Lead, Scrum Master, Frontend Engineer) under mentor guidance, demonstrating flexibility and a growth-oriented mindset.",
